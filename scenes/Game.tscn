@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://8qbtki7tuf5c"]
+
+[ext_resource type="PackedScene" uid="uid://bqo1q5or8tdei" path="res://assets/city/city.tscn" id="1_ibkli"]
+[ext_resource type="Script" uid="uid://dhynoyybxlu2" path="res://scenes/game.gd" id="1_s0nni"]
+[ext_resource type="PackedScene" uid="uid://c4cvr5bjjef5t" path="res://assets/player/player.tscn" id="3_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://qq7nabwb6mnn" path="res://scenes/ui/ui.tscn" id="4_78awf"]
+[ext_resource type="PackedScene" uid="uid://bgixqltg257r5" path="res://assets/mob/spawner/mob_spawner_3d.tscn" id="5_kiw3p"]
+[ext_resource type="AudioStream" uid="uid://b6l70fgtss7c7" path="res://assets/sounds/minijam_1.mp3" id="6_aug50"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_s0nni")
+
+[node name="BackgroundMusik" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_aug50")
+
+[node name="City" parent="." instance=ExtResource("1_ibkli")]
+
+[node name="MobSpawner3D" parent="." instance=ExtResource("5_kiw3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.743374)
+
+[node name="Player" parent="." instance=ExtResource("3_cpr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.300316)
+
+[node name="UI" parent="." instance=ExtResource("4_78awf")]
+mouse_filter = 2
+
+[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]

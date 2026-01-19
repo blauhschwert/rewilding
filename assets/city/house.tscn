@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj12ffkwokpvs"]
+
+[ext_resource type="PackedScene" uid="uid://dw6hoq1h5vt12" path="res://assets/city/house/house.fbx" id="1_be6c2"]
+
+[node name="house" type="Node3D"]
+
+[node name="house" parent="." instance=ExtResource("1_be6c2")]

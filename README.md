@@ -1,0 +1,2 @@
+# project-rewilding
+In this game jam title, you play as a lone rewilder restoring nature to a dying city. By planting greenery and reviving ecosystems, you reclaim urban spaces—while battling hostile robots that enforce the city’s sterile, mechanical order. Each restored area brings life back, turning concrete jungles into living landscapes.

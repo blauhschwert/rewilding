@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbccem1j3m5un"]
+
+[ext_resource type="AudioStream" uid="uid://bt5n86ykbj0tf" path="res://assets/sounds/shoot_sound/shoot_sound_00.mp3" id="1_3vtry"]
+[ext_resource type="AudioStream" uid="uid://cob65hx0m7nop" path="res://assets/sounds/shoot_sound/shoot_sound_01.mp3" id="2_eh8yb"]
+[ext_resource type="AudioStream" uid="uid://c51n2vwqjtixp" path="res://assets/sounds/shoot_sound/shoot_sound_02.mp3" id="3_mhd88"]
+[ext_resource type="Script" uid="uid://cq6ksoy2io31c" path="res://assets/sounds/shoot_sound/shooting_sound.gd" id="4_3v65t"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t0gt3"]
+playback_mode = 1
+streams_count = 3
+stream_0/stream = ExtResource("1_3vtry")
+stream_1/stream = ExtResource("2_eh8yb")
+stream_2/stream = ExtResource("3_mhd88")
+
+[node name="ShootingSound" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStreamRandomizer_t0gt3")
+script = ExtResource("4_3v65t")
