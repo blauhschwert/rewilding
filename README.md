@@ -12,4 +12,3 @@ In this game jam title, you play as a lone rewilder restoring nature to a dying 
 - GDQuest -> learning 3d game dev skills
 - music -> rae
 - 3d models -> blockbench
-- tree -> https://opengameart.org/content/low-poly-tree
