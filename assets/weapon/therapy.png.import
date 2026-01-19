@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwfxn1ehscgdl"
-path.s3tc="res://.godot/imported/house_0.png-093130a1ae10c0f9e5f55ead6e1f355a.s3tc.ctex"
+uid="uid://clhiutotmu5dc"
+path.s3tc="res://.godot/imported/therapy.png-8727ba367c9e65f665a3a028f09b28fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "283abb829e6b2297902377313d1f4af9"
-}
 
 [deps]
 
-source_file="res://assets/city/house/house_0.png"
-dest_files=["res://.godot/imported/house_0.png-093130a1ae10c0f9e5f55ead6e1f355a.s3tc.ctex"]
+source_file="res://assets/weapon/therapy.png"
+dest_files=["res://.godot/imported/therapy.png-8727ba367c9e65f665a3a028f09b28fc.s3tc.ctex"]
 
 [params]
 

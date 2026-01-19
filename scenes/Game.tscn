@@ -16,7 +16,7 @@ stream = ExtResource("6_aug50")
 [node name="City" parent="." instance=ExtResource("1_ibkli")]
 
 [node name="MobSpawner3D" parent="." instance=ExtResource("5_kiw3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.743374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.963655)
 
 [node name="Player" parent="." instance=ExtResource("3_cpr0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.300316)

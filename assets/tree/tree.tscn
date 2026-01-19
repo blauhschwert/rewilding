@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq2mxvnqhdjaf"]
+
+[ext_resource type="PackedScene" uid="uid://d14g21xp4osjg" path="res://assets/tree/tree_blocki.tscn" id="1_d5r1u"]
+
+[node name="tree" type="Node3D"]
+
+[node name="tree_blocki" parent="." instance=ExtResource("1_d5r1u")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)

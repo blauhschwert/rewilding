@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://8lw7g0yeoe35"]
+
+[ext_resource type="PackedScene" uid="uid://wdsuqmiphw15" path="res://assets/weapon/gunnew.fbx" id="1_5qukl"]
+[ext_resource type="Texture2D" uid="uid://dbydpufuqblvr" path="res://assets/weapon/stell.png" id="2_nkn7p"]
+[ext_resource type="Texture2D" uid="uid://clhiutotmu5dc" path="res://assets/weapon/therapy.png" id="3_f6fhr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asrth"]
+albedo_color = Color(1, 0.52, 0.52, 1)
+albedo_texture = ExtResource("2_nkn7p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv0ig"]
+albedo_texture = ExtResource("3_f6fhr")
+roughness = 0.0
+clearcoat_roughness = 0.48
+
+[node name="gunnew" instance=ExtResource("1_5qukl")]
+
+[node name="cylinder" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_asrth")
+
+[node name="pyramid" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_tv0ig")
