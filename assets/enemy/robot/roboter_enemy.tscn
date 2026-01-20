@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1c874fi16iut"]
+
+[ext_resource type="Script" uid="uid://dpybrk07lvphv" path="res://assets/enemy/robot/roboter_enemy.gd" id="1_x101l"]
+[ext_resource type="PackedScene" uid="uid://dunmg5aajo6bx" path="res://assets/enemy/robot/roboter.tscn" id="2_xsb87"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x101l"]
+radius = 0.70458984
+
+[node name="RoboterEnemy" type="RigidBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_x101l")
+
+[node name="roboter_model" parent="." instance=ExtResource("2_xsb87")]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92974603, 0)
+shape = SubResource("CapsuleShape3D_x101l")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.8
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,209 @@
+[gd_scene load_steps=16 format=3 uid="uid://dunmg5aajo6bx"]
+
+[ext_resource type="PackedScene" uid="uid://ckg880c11ukwf" path="res://assets/enemy/robot/roboter.fbx" id="1_hga3e"]
+[ext_resource type="Texture2D" uid="uid://dvgi4adhybcet" path="res://assets/enemy/robot/textures/eyes.png" id="2_7sdux"]
+[ext_resource type="Script" uid="uid://bqfs1ul7qxdav" path="res://assets/enemy/robot/roboter_model.gd" id="2_k31ax"]
+[ext_resource type="Texture2D" uid="uid://bt1lj8tee5euc" path="res://assets/enemy/robot/textures/body.png" id="3_k31ax"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_notpq"]
+albedo_texture = ExtResource("2_7sdux")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcyhd"]
+albedo_color = Color(0.13374999, 0.25, 0.095, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wilh8"]
+albedo_color = Color(0.13374999, 0.25, 0.095, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkcpw"]
+albedo_texture = ExtResource("3_k31ax")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1daxv"]
+albedo_color = Color(0.32, 0.32, 0.32, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upf8d"]
+transparency = 1
+albedo_color = Color(0.43, 0.43, 0.43, 0.19607843)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sdux"]
+albedo_color = Color(0.26, 0.26, 0.26, 1)
+
+[sub_resource type="Animation" id="Animation_k31ax"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6, 6, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/arms/left_arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/arms/right_arm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.6755161, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7sdux"]
+resource_name = "hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(5, 5, 5), Vector3(7, 7, 7), Vector3(5, 5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/arms/left_arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16300888, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.8849556, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/arms/right_arm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16300888, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.6755161, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_notpq"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.3926991, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_notpq"]
+_data = {
+&"RESET": SubResource("Animation_k31ax"),
+&"hurt": SubResource("Animation_7sdux"),
+&"walk": SubResource("Animation_notpq")
+}
+
+[node name="roboter" instance=ExtResource("1_hga3e")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+script = ExtResource("2_k31ax")
+
+[node name="circle_2" parent="body/eyes" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_notpq")
+
+[node name="circle_3" parent="body/eyes" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_notpq")
+
+[node name="cylinder" parent="body/arms/left_arm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bcyhd")
+
+[node name="sphere" parent="body/arms/left_arm" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bcyhd")
+
+[node name="cylinder_1" parent="body/arms/left_arm" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bcyhd")
+
+[node name="hand_1" parent="body/arms/left_arm" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bcyhd")
+
+[node name="right_arm" parent="body/arms" index="1"]
+transform = Transform3D(1, 0, 0, 0, -0.10452851, -0.9945219, 0, 0.9945219, -0.10452851, 0.0625, 0.15625, 0)
+
+[node name="cylinder_2" parent="body/arms/right_arm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wilh8")
+
+[node name="sphere_1" parent="body/arms/right_arm" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wilh8")
+
+[node name="cylinder_3" parent="body/arms/right_arm" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wilh8")
+
+[node name="hand" parent="body/arms/right_arm" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wilh8")
+
+[node name="body_1" parent="body" index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.125, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_tkcpw")
+
+[node name="circle" parent="alarm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1daxv")
+
+[node name="circle_1" parent="alarm" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_upf8d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="alarm" index="2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00044031144, 0.07372379, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 8.0
+light_indirect_energy = 4.464
+light_size = 0.935
+light_specular = 16.0
+omni_range = 0.17510489
+
+[node name="circle_4" parent="wheel" index="0"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.00625, -0.0125, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_7sdux")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_notpq")
+}

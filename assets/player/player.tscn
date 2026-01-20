@@ -20,10 +20,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.504998, -0.34328145)
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49703747, -0.2564397, -1.3503087)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7355153, -0.26357758, -1.6142869)
 
 [node name="weapon" parent="Camera3D" instance=ExtResource("2_ouxva")]
-transform = Transform3D(-2.4993918, 0, 0.05514808, 0, 2.5, 0, -0.05514808, 0, -2.4993918, 0.4933399, -0.5368893, -0.8568073)
+transform = Transform3D(-2.4993918, 0, 0.05514808, 0, 2.5, 0, -0.05514808, 0, -2.4993918, 0.7318177, -0.5368893, -1.1435778)
 
 [node name="Reticle" type="TextureRect" parent="."]
 anchors_preset = 8

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://daradnoogyn2x"]
+
+[ext_resource type="Shader" uid="uid://dskfhljxr43e4" path="res://assets/enemy/spawner/spawner_screen.gdshader" id="1_xrlvv"]
+[ext_resource type="Texture2D" uid="uid://6mi0n0mfunde" path="res://assets/enemy/spawner/spawner_text.png" id="2_jg7d7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xrlvv")
+shader_parameter/screen_color = Color(0.239216, 0.784314, 0.576471, 0.027451)
+shader_parameter/text_sampler = ExtResource("2_jg7d7")
+shader_parameter/ratio = 0.25
+shader_parameter/pixel_size = 32.0
+shader_parameter/intensity = 1.5

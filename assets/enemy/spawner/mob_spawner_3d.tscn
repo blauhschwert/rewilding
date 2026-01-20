@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmeipk1gr1ojl"]
+
+[ext_resource type="Script" uid="uid://byhakbc4ga6bx" path="res://assets/enemy/spawner/mob_spawner_3d.gd" id="1_uyfve"]
+[ext_resource type="PackedScene" uid="uid://d1c874fi16iut" path="res://assets/enemy/robot/roboter_enemy.tscn" id="2_pb33k"]
+[ext_resource type="PackedScene" uid="uid://b2ikhh3bfqwnd" path="res://assets/enemy/spawner/spawner_model.tscn" id="3_dr86q"]
+[ext_resource type="Shader" uid="uid://cn76qauif7lb1" path="res://assets/enemy/spawner/spawner_halo.gdshader" id="4_omm4l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fsjkx"]
+render_priority = 0
+shader = ExtResource("4_omm4l")
+shader_parameter/color = Color(0.009199992, 0.46, 0.21206002, 1)
+
+[node name="MobSpawner3D" type="Node3D"]
+script = ExtResource("1_uyfve")
+mob_to_spawn = ExtResource("2_pb33k")
+
+[node name="spawner_model" parent="." instance=ExtResource("3_dr86q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="halo" parent="spawner_model" index="0"]
+material_override = SubResource("ShaderMaterial_fsjkx")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8562113, 0)
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="spawner_model"]
