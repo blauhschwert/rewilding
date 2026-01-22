@@ -189,15 +189,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1daxv")
 [node name="circle_1" parent="alarm" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_upf8d")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="alarm" index="2"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00044031144, 0.07372379, 0)
-light_color = Color(1, 0, 0, 1)
-light_energy = 8.0
-light_indirect_energy = 4.464
-light_size = 0.935
-light_specular = 16.0
-omni_range = 0.17510489
-
 [node name="circle_4" parent="wheel" index="0"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.00625, -0.0125, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_7sdux")

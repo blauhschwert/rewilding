@@ -1,4 +1,4 @@
-class_name Bullet3D
+class_name Bullet3DOld
 extends Area3D
 
 const SPEED := 15.0

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5vgji1m2v0ni"]
+
+[ext_resource type="PackedScene" uid="uid://de1n1dp16gep4" path="res://assets/gear/gear/gear_model.tscn" id="1_ukn6w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4o1jt"]
+size = Vector3(1.1116943, 0.34057617, 1.1172485)
+
+[node name="gear" type="Area3D"]
+
+[node name="gear_model" parent="." instance=ExtResource("1_ukn6w")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0071411133, 0.17272949, -0.0018615723)
+shape = SubResource("BoxShape3D_4o1jt")

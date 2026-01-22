@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcsef0b1ysbai"]
+
+[ext_resource type="PackedScene" uid="uid://d2dayv68frlck" path="res://assets/weapon/sword/sword.fbx" id="1_36s37"]
+[ext_resource type="Texture2D" uid="uid://brmtu4wuwias" path="res://assets/weapon/sword/sword_0.png" id="2_xquox"]
+[ext_resource type="Texture2D" uid="uid://8l0fth51lxqe" path="res://assets/weapon/sword/blade.png" id="3_dq3rm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xftx"]
+albedo_color = Color(1, 0.6875, 0.25, 1)
+albedo_texture = ExtResource("2_xquox")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyuam"]
+albedo_color = Color(0.65, 0.559, 0.494, 1)
+albedo_texture = ExtResource("3_dq3rm")
+metallic = 0.45
+metallic_specular = 0.35
+roughness = 0.55
+stencil_flags = 2
+
+[node name="sword" type="Node3D"]
+
+[node name="sword" parent="." instance=ExtResource("1_36s37")]
+
+[node name="cylinder" parent="sword" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7xftx")
+
+[node name="plane" parent="sword" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qyuam")
+
+[editable path="sword"]
