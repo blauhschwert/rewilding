@@ -1,9 +1,12 @@
 class_name PlayerController
 extends CharacterBody3D
 
+const MIN_RUN_VELOCITY := 1.0
+
 @export var debug : bool = false
 @export_category("References")
 @export var camera : CameraController
+@export var camera_effects : CameraEffect
 @export var state_chart : StateChart
 @export var standing_collision : CollisionShape3D
 @export var crouching_collision : CollisionShape3D
@@ -17,23 +20,47 @@ extends CharacterBody3D
 @export var default_speed : float = 3.5
 @export var sprint_speed : float = 3.7
 @export var crouch_speed : float = -5.0
+@export_category("Camera Extras")
+@export var sprint_field_of_view := 90.0
 @export_category("Jump Settings")
 @export var jump_velocity : float = 5.
+@export var fall_velocity_threshold : float = -5.0
+@export_category("Data Helpers")
+@export var data_relative_velocity : Vector3
 
 var _input_dir : Vector2 = Vector2.ZERO
 var _movement_velocity : Vector3 = Vector3.ZERO
 var sprint_modifier : float = 0.0
 var crouch_modifier : float = 0.0
 var speed : float = 0.0
+var current_fall_velocity : float
+
+var _target_speed := 0.0
+var _target_fov := 0.0
 
 @onready var shooting_point = %ShootingPoint
 @onready var shooting_timer = %ShootingTimer
 @onready var shooting_sound = %ShootingSound
 
+@onready var _default_field_of_view := camera_effects.fov
+@warning_ignore("unused_private_class_variable")
+@onready var _orginal_speed := default_speed
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	if Input.is_action_pressed("sprint") and velocity.length_squared() > MIN_RUN_VELOCITY:
+		_target_speed = sprint_speed
+		_target_fov = sprint_field_of_view
+	else:
+		_target_speed = default_speed
+		_target_fov = _default_field_of_view
+	
+	speed = lerp(default_speed, _target_speed, delta * acceleration)
+	camera_effects.fov = lerp(camera_effects.fov, _target_fov, delta * acceleration)
+	
 	
 	var speed_modifier = sprint_modifier + crouch_modifier
 	speed = default_speed + speed_modifier
@@ -53,8 +80,8 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
-	if Input.is_action_pressed("shoot") and %ShootingTimer.is_stopped():
-		shoot_bullet()
+	#if Input.is_action_pressed("shoot") and %ShootingTimer.is_stopped():
+		#shoot_bullet()
 
 func shoot_bullet():
 	const BULLET_3D = preload("res://scenes/player/bullet_3d.tscn")
@@ -87,3 +114,11 @@ func crouch() -> void:
 
 func jump() -> void:
 	velocity.y += jump_velocity
+
+func check_fall_speed() -> bool:
+	if current_fall_velocity < fall_velocity_threshold:
+		current_fall_velocity = 0.0
+		return true
+	else:
+		current_fall_velocity = 0.0
+		return false

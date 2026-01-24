@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://8lw7g0yeoe35"]
 
-[ext_resource type="PackedScene" uid="uid://wdsuqmiphw15" path="res://assets/weapon/gunnew.fbx" id="1_5qukl"]
-[ext_resource type="Texture2D" uid="uid://dbydpufuqblvr" path="res://assets/weapon/stell.png" id="2_nkn7p"]
-[ext_resource type="Texture2D" uid="uid://clhiutotmu5dc" path="res://assets/weapon/therapy.png" id="3_f6fhr"]
+[ext_resource type="PackedScene" uid="uid://wdsuqmiphw15" path="res://assets/weapon/model/pistol/gunnew.fbx" id="1_5qukl"]
+[ext_resource type="Texture2D" uid="uid://dbydpufuqblvr" path="res://assets/weapon/model/pistol/stell.png" id="2_nkn7p"]
+[ext_resource type="Texture2D" uid="uid://clhiutotmu5dc" path="res://assets/weapon/model/pistol/therapy.png" id="3_f6fhr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asrth"]
 albedo_color = Color(1, 0.52, 0.52, 1)

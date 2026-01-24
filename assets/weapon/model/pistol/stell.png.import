@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clhiutotmu5dc"
-path.s3tc="res://.godot/imported/therapy.png-8727ba367c9e65f665a3a028f09b28fc.s3tc.ctex"
+uid="uid://dbydpufuqblvr"
+path.s3tc="res://.godot/imported/stell.png-934e9229f01f28ee5d9ec640ce1d7c5e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/weapon/therapy.png"
-dest_files=["res://.godot/imported/therapy.png-8727ba367c9e65f665a3a028f09b28fc.s3tc.ctex"]
+source_file="res://assets/weapon/model/pistol/stell.png"
+dest_files=["res://.godot/imported/stell.png-934e9229f01f28ee5d9ec640ce1d7c5e.s3tc.ctex"]
 
 [params]
 

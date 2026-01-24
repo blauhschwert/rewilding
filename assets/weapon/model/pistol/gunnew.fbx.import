@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d2dayv68frlck"
-path="res://.godot/imported/sword.fbx-f61b4a29332511ba0b1b2f15034c7801.scn"
+uid="uid://wdsuqmiphw15"
+path="res://.godot/imported/gunnew.fbx-aad898f69f6a50e95f6991e2f7fdcba8.scn"
 
 [deps]
 
-source_file="res://assets/weapon/sword/sword.fbx"
-dest_files=["res://.godot/imported/sword.fbx-f61b4a29332511ba0b1b2f15034c7801.scn"]
+source_file="res://assets/weapon/model/pistol/gunnew.fbx"
+dest_files=["res://.godot/imported/gunnew.fbx-aad898f69f6a50e95f6991e2f7fdcba8.scn"]
 
 [params]
 

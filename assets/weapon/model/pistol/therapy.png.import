@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8l0fth51lxqe"
-path.s3tc="res://.godot/imported/blade.png-4a443799142e97cb445e0da4fbc56f2d.s3tc.ctex"
+uid="uid://clhiutotmu5dc"
+path.s3tc="res://.godot/imported/therapy.png-9a40293802ea5ab1ff9bfae7d84282f6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/weapon/sword/blade.png"
-dest_files=["res://.godot/imported/blade.png-4a443799142e97cb445e0da4fbc56f2d.s3tc.ctex"]
+source_file="res://assets/weapon/model/pistol/therapy.png"
+dest_files=["res://.godot/imported/therapy.png-9a40293802ea5ab1ff9bfae7d84282f6.s3tc.ctex"]
 
 [params]
 

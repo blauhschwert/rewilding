@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbydpufuqblvr"
-path.s3tc="res://.godot/imported/stell.png-e6d3e6b5a6efb0a5e3697dfd1078d0b4.s3tc.ctex"
+uid="uid://8l0fth51lxqe"
+path.s3tc="res://.godot/imported/blade.png-1e619c742d32da510e908f21e3c76fde.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/weapon/stell.png"
-dest_files=["res://.godot/imported/stell.png-e6d3e6b5a6efb0a5e3697dfd1078d0b4.s3tc.ctex"]
+source_file="res://assets/weapon/model/sword/blade.png"
+dest_files=["res://.godot/imported/blade.png-1e619c742d32da510e908f21e3c76fde.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://02hcnha1futo"]
+
+[ext_resource type="PackedScene" uid="uid://8lw7g0yeoe35" path="res://assets/weapon/model/pistol/gunnew.tscn" id="1_b0dug"]
+
+[node name="weapon" type="Node3D"]
+transform = Transform3D(-2.1, 0, 1.8358783e-07, 0, 2.1, 0, -1.8358783e-07, 0, -2.1, 0, 0, 0)
+
+[node name="gunnew" parent="." instance=ExtResource("1_b0dug")]
+
+[editable path="gunnew"]

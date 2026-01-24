@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bcsef0b1ysbai"]
 
-[ext_resource type="PackedScene" uid="uid://d2dayv68frlck" path="res://assets/weapon/sword/sword.fbx" id="1_36s37"]
-[ext_resource type="Texture2D" uid="uid://brmtu4wuwias" path="res://assets/weapon/sword/sword_0.png" id="2_xquox"]
-[ext_resource type="Texture2D" uid="uid://8l0fth51lxqe" path="res://assets/weapon/sword/blade.png" id="3_dq3rm"]
+[ext_resource type="PackedScene" uid="uid://d2dayv68frlck" path="res://assets/weapon/model/sword/sword.fbx" id="1_36s37"]
+[ext_resource type="Texture2D" uid="uid://brmtu4wuwias" path="res://assets/weapon/model/sword/sword_0.png" id="2_xquox"]
+[ext_resource type="Texture2D" uid="uid://8l0fth51lxqe" path="res://assets/weapon/model/sword/blade.png" id="3_dq3rm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xftx"]
 albedo_color = Color(1, 0.6875, 0.25, 1)
