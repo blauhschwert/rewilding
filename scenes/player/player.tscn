@@ -24,7 +24,7 @@
 [ext_resource type="Script" uid="uid://5awkuiugljwi" path="res://scenes/player/states/standing_state.gd" id="17_kvlxm"]
 [ext_resource type="Script" uid="uid://34a1psgbhjln" path="res://scenes/player/states/crouching_state.gd" id="18_uf5tr"]
 [ext_resource type="Script" uid="uid://c345qvd1v3y32" path="res://scenes/player/states/airbone_state.gd" id="19_lgqa7"]
-[ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://assets/player/reticle.png" id="22_yj68g"]
+[ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://assets/old/player/reticle.png" id="22_yj68g"]
 [ext_resource type="Script" uid="uid://datp3py8k4c1t" path="res://assets/weapon/scripts/weapon_state_machine.gd" id="27_iqsei"]
 [ext_resource type="Script" uid="uid://dix7umlxga1b5" path="res://assets/weapon/scripts/states/weapon_idle_state.gd" id="28_tffgl"]
 [ext_resource type="Script" uid="uid://dxbhn56a36e5q" path="res://assets/weapon/scripts/states/weapon_firing_state.gd" id="29_pk8ii"]
@@ -76,9 +76,9 @@ script = ExtResource("4_cnsyf")
 player = NodePath("../..")
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraController/Camera3D"]
-visible = false
 target_position = Vector3(0, 0, -3)
 debug_shape_custom_color = Color(0.36941668, 0.65, 0.19500001, 1)
+debug_shape_thickness = 1
 script = ExtResource("4_ioxgp")
 
 [node name="ShootingPoint" type="Marker3D" parent="CameraController"]
@@ -284,7 +284,7 @@ script = ExtResource("7_je7p5")
 [node name="EmptyState" type="Node" parent="WeaponStateChart/Root"]
 script = ExtResource("7_je7p5")
 
-[node name="OnIdle" type="Node" parent="WeaponStateChart/Root"]
+[node name="onIdle" type="Node" parent="WeaponStateChart/Root"]
 script = ExtResource("8_fm80t")
 to = NodePath("../IdleState")
 event = &"onIdle"

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4cvr5bjjef5t"]
 
-[ext_resource type="Script" uid="uid://diif1150k77oh" path="res://assets/player/player.gd" id="1_h6syq"]
+[ext_resource type="Script" uid="uid://diif1150k77oh" path="res://assets/old/player/player.gd" id="1_h6syq"]
 [ext_resource type="PackedScene" uid="uid://02hcnha1futo" path="res://assets/weapon/model/pistol/weapon.tscn" id="2_ouxva"]
-[ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://assets/player/reticle.png" id="3_v2miy"]
+[ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://assets/old/player/reticle.png" id="3_v2miy"]
 [ext_resource type="PackedScene" uid="uid://cbccem1j3m5un" path="res://assets/sounds/shoot_sound/shooting_sound.tscn" id="4_ouxva"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]

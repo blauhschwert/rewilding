@@ -20,9 +20,9 @@ func _physics_process(_delta):
 	linear_velocity = direction * speed
 	roboter_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction,Vector3.UP) + PI
 
-func take_damage():
+func take_damage(p_amount : int):
 	roboter_model.hurt()
-	health -= 1
+	health -= p_amount
 	
 	if health == 0:
 		set_physics_process(false)

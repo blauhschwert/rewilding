@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbxh55nakdvuq"]
+
+[ext_resource type="Script" uid="uid://dyxmdt54k0k5t" path="res://assets/weapon/scripts/projectile.gd" id="1_lw5kl"]
+[ext_resource type="PackedScene" uid="uid://cixmcto8jeu3k" path="res://assets/old/player/projectile/projectile_3d.tscn" id="2_5obef"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rai8h"]
+radius = 0.13396226
+
+[node name="Projectile" type="Area3D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_lw5kl")
+
+[node name="Projectile3D" parent="." instance=ExtResource("2_5obef")]
+transform = Transform3D(-0.31, 0, -4.68087e-08, 0, 0.31, 0, 4.68087e-08, 0, -0.31, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rai8h")

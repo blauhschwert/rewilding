@@ -83,14 +83,14 @@ func _physics_process(delta: float) -> void:
 	#if Input.is_action_pressed("shoot") and %ShootingTimer.is_stopped():
 		#shoot_bullet()
 
-func shoot_bullet():
-	const BULLET_3D = preload("res://scenes/player/bullet_3d.tscn")
-	var new_bullet = BULLET_3D.instantiate()
-	shooting_point.add_child(new_bullet)
-	
-	new_bullet.global_transform = shooting_point.global_transform
-	shooting_timer.start()
-	shooting_sound.play_shoot()
+#func shoot_bullet():
+	#const BULLET_3D = preload("res://scenes/player/bullet_3d.tscn")
+	#var new_bullet = BULLET_3D.instantiate()
+	#shooting_point.add_child(new_bullet)
+	#
+	#new_bullet.global_transform = shooting_point.global_transform
+	#shooting_timer.start()
+	#shooting_sound.play_shoot()
 
 
 func update_rotation(rotation_input) -> void:

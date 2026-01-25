@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3ol5rccgondd"
-path.s3tc="res://.godot/imported/gun_model_gun_palette.png-97a30c28eed6e7ce7b78f2c89441189f.s3tc.ctex"
+path.s3tc="res://.godot/imported/gun_model_gun_palette.png-c6566689ac446f28cc3da77d80757634.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/player/simple_gun/gun_model_gun_palette.png"
-dest_files=["res://.godot/imported/gun_model_gun_palette.png-97a30c28eed6e7ce7b78f2c89441189f.s3tc.ctex"]
+source_file="res://assets/old/player/simple_gun/gun_model_gun_palette.png"
+dest_files=["res://.godot/imported/gun_model_gun_palette.png-c6566689ac446f28cc3da77d80757634.s3tc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1bq6qvydmxtw"
-path="res://.godot/imported/simple_gun_gun_palette.png-8d08ab11700330cefd987447f8340e0a.ctex"
+uid="uid://cuyh8hew637ju"
+path="res://.godot/imported/reticle.png-1e4cf3e056e6cf0fc99cef0abd5ed70f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/simple_gun/simple_gun_gun_palette.png"
-dest_files=["res://.godot/imported/simple_gun_gun_palette.png-8d08ab11700330cefd987447f8340e0a.ctex"]
+source_file="res://assets/old/player/reticle.png"
+dest_files=["res://.godot/imported/reticle.png-1e4cf3e056e6cf0fc99cef0abd5ed70f.ctex"]
 
 [params]
 

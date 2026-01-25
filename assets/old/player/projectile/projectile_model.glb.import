@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgvsd3rxobh4q"
-path="res://.godot/imported/projectile_model.glb-bd7e7a8243c1c1b125b5c10d37a0b2c3.scn"
+uid="uid://bl1abdlwirg31"
+path="res://.godot/imported/projectile_model.glb-5b14712c7b38a67d0173a2d64854dca5.scn"
 
 [deps]
 
-source_file="res://scenes/player/projectile/projectile_model.glb"
-dest_files=["res://.godot/imported/projectile_model.glb-bd7e7a8243c1c1b125b5c10d37a0b2c3.scn"]
+source_file="res://assets/old/player/projectile/projectile_model.glb"
+dest_files=["res://.godot/imported/projectile_model.glb-5b14712c7b38a67d0173a2d64854dca5.scn"]
 
 [params]
 
