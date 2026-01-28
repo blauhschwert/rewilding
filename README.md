@@ -16,5 +16,6 @@ In this game jam title, you play as a lone rewilder restoring nature to a dying 
 ## Resources
 
 - GDQuest -> learning 3d game dev skills
+- FPS Controller -> https://www.youtube.com/watch?v=L5ObCs9OMRY&list=PLEHvj4yeNfeHtjrRBSqEii1jcDx2yPv6-
 - music -> rae
 - 3d models -> blockbench
