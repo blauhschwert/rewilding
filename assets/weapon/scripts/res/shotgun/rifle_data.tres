@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://buqyxy2sqrqsr"]
+
+[ext_resource type="Script" uid="uid://ctny5b1x8c115" path="res://assets/weapon/scripts/weapon_data.gd" id="1_v5dak"]
+[ext_resource type="Resource" uid="uid://cyn8c3mcxveho" path="res://assets/weapon/scripts/res/shotgun/rifle.tres" id="2_66l65"]
+
+[resource]
+script = ExtResource("1_v5dak")
+weapon = ExtResource("2_66l65")
+ammo = 34
+metadata/_custom_type_script = "uid://ctny5b1x8c115"

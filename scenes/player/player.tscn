@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="8_fm80t"]
 [ext_resource type="Script" uid="uid://cwjewyc451erw" path="res://scenes/player/states/idle_state.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://cin1n844qjjv5" path="res://assets/weapon/scripts/weapon_controller.gd" id="9_6cv16"]
-[ext_resource type="Resource" uid="uid://1euu5serh27s" path="res://assets/weapon/scripts/res/pistol.tres" id="10_j4nxn"]
+[ext_resource type="Resource" uid="uid://1euu5serh27s" path="res://assets/weapon/scripts/res/pistol/pistol.tres" id="10_j4nxn"]
 [ext_resource type="Script" uid="uid://5xjmh372ig4m" path="res://scenes/player/components/state_machine.gd" id="10_ugbui"]
 [ext_resource type="Script" uid="uid://dic11o0xyxc0o" path="res://scenes/player/states/moving_state.gd" id="11_je7p5"]
 [ext_resource type="Script" uid="uid://b4paksgrrg21" path="res://scenes/player/states/walking_state.gd" id="12_fm80t"]
@@ -38,11 +38,12 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yj68g"]
 
-[node name="PlayerController" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_effects", "state_chart", "standing_collision", "crouching_collision", "crouch_check", "interaction_raycast")]
+[node name="PlayerController" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_effects", "state_chart", "weaopon_controller", "standing_collision", "crouching_collision", "crouch_check", "interaction_raycast") groups=["player"]]
 script = ExtResource("1_dovo2")
 camera = NodePath("CameraController")
 camera_effects = NodePath("CameraController/Camera3D")
 state_chart = NodePath("StateChart")
+weaopon_controller = NodePath("Components/WeaponContoller")
 standing_collision = NodePath("StandingCollision")
 crouching_collision = NodePath("CrouchingCollision")
 crouch_check = NodePath("ShapeCast3D")
@@ -93,8 +94,9 @@ script = ExtResource("1_8afob")
 [node name="StepHandlerComponent" type="Node" parent="Components"]
 script = ExtResource("8_007i1")
 
-[node name="WeaponContoller" type="Node" parent="Components" node_paths=PackedStringArray("camera", "weapon_model_parent", "weapon_state_chart", "player_character")]
+[node name="WeaponContoller" type="Node" parent="Components" node_paths=PackedStringArray("camera", "weapon_model_parent", "weapon_state_chart", "player_character") groups=["player"]]
 script = ExtResource("9_6cv16")
+is_debug = true
 camera = NodePath("../../CameraController/Camera3D")
 current_weapon = ExtResource("10_j4nxn")
 weapon_model_parent = NodePath("../../CameraController/Camera3D")

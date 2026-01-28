@@ -15,6 +15,10 @@ run/main_scene="uid://8qbtki7tuf5c"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://8cky0ccfacdr"
 
+[autoload]
+
+Managers="*res://assets/scripts/system/managers.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -31,9 +35,21 @@ project/assembly_name="rewilding"
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "blue",
+"res://assets/": "orange",
+"res://scenes/": "teal"
+}
+
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+player=""
 
 [input]
 

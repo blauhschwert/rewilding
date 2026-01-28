@@ -8,6 +8,7 @@ const MIN_RUN_VELOCITY := 1.0
 @export var camera : CameraController
 @export var camera_effects : CameraEffect
 @export var state_chart : StateChart
+@export var weaopon_controller : WeaponController
 @export var standing_collision : CollisionShape3D
 @export var crouching_collision : CollisionShape3D
 @export var crouch_check : ShapeCast3D

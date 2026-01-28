@@ -1,14 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://8qbtki7tuf5c"]
+[gd_scene load_steps=15 format=3 uid="uid://8qbtki7tuf5c"]
 
 [ext_resource type="PackedScene" uid="uid://bqo1q5or8tdei" path="res://assets/city/city.tscn" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://dhynoyybxlu2" path="res://scenes/game.gd" id="1_s0nni"]
+[ext_resource type="Script" uid="uid://ddq6k1y8fewqr" path="res://assets/scripts/system/weapon_manager.gd" id="2_kiw3p"]
+[ext_resource type="Script" uid="uid://ctny5b1x8c115" path="res://assets/weapon/scripts/weapon_data.gd" id="3_qy1jj"]
+[ext_resource type="Resource" uid="uid://bida3kxsef2ly" path="res://assets/weapon/scripts/res/pistol/pistol_data.tres" id="4_3xj3m"]
 [ext_resource type="PackedScene" uid="uid://qq7nabwb6mnn" path="res://scenes/ui/ui.tscn" id="4_78awf"]
+[ext_resource type="Resource" uid="uid://buqyxy2sqrqsr" path="res://assets/weapon/scripts/res/shotgun/rifle_data.tres" id="5_mcffj"]
 [ext_resource type="PackedScene" uid="uid://4fw7r3wj2knf" path="res://scenes/player/player.tscn" id="6_400sg"]
 [ext_resource type="AudioStream" uid="uid://b6l70fgtss7c7" path="res://assets/sounds/minijam_1.mp3" id="6_aug50"]
 [ext_resource type="PackedScene" uid="uid://bmeipk1gr1ojl" path="res://assets/enemy/spawner/mob_spawner_3d.tscn" id="6_kiw3p"]
+[ext_resource type="PackedScene" uid="uid://ccxe6ahrdqvw6" path="res://scenes/environment/pickups/weapon_pickup.tscn" id="6_mcffj"]
+[ext_resource type="PackedScene" uid="uid://fq33dei16hcx" path="res://scenes/environment/pickups/base_pickup.tscn" id="11_3xj3m"]
+[ext_resource type="Resource" uid="uid://cyn8c3mcxveho" path="res://assets/weapon/scripts/res/shotgun/rifle.tres" id="13_2rd6h"]
+[ext_resource type="PackedScene" uid="uid://cao8si6i8g2ic" path="res://scenes/environment/pickups/ammo_pickup.tscn" id="14_7ua8r"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_s0nni")
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="WeaponManager" type="Node" parent="Managers" node_paths=PackedStringArray("player") groups=["player"]]
+script = ExtResource("2_kiw3p")
+weapons = Dictionary[int, ExtResource("3_qy1jj")]({
+1: ExtResource("4_3xj3m"),
+2: ExtResource("5_mcffj")
+})
+player = NodePath("../../Player")
 
 [node name="BackgroundMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aug50")
@@ -23,5 +41,21 @@ mouse_filter = 2
 
 [node name="Player" parent="." instance=ExtResource("6_400sg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.141129, -4.851794)
+
+[node name="BasePickup" parent="." instance=ExtResource("11_3xj3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21694565, 0.7560723, -18.924911)
+
+[node name="BasePickup2" parent="." instance=ExtResource("11_3xj3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2097015, 0.9059689, -8.838545)
+float_height = 0.5
+
+[node name="WeaponPickup" parent="." instance=ExtResource("6_mcffj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -12)
+weapon_slot = 2
+weapon_resource = ExtResource("13_2rd6h")
+float_height = 0.1
+
+[node name="AmmoPickup" parent="." instance=ExtResource("14_7ua8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, -7)
 
 [connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccxe6ahrdqvw6"]
+
+[ext_resource type="Script" uid="uid://d1wnkh7mx8q1v" path="res://assets/scripts/environment/pickups/weapon_pickup.gd" id="1_urris"]
+[ext_resource type="Resource" uid="uid://1euu5serh27s" path="res://assets/weapon/scripts/res/pistol/pistol.tres" id="2_6c8sy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urris"]
+albedo_color = Color(0.79, 0.07109998, 0.39460486, 1)
+metallic = 0.35
+metallic_specular = 0.35
+roughness = 0.35
+
+[sub_resource type="SphereMesh" id="SphereMesh_urris"]
+material = SubResource("StandardMaterial3D_urris")
+radius = 0.4
+radial_segments = 4
+rings = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tdvqc"]
+radius = 0.5813189
+
+[node name="WeaponPickup" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1172843, 0)
+collision_layer = 4
+script = ExtResource("1_urris")
+weapon_resource = ExtResource("2_6c8sy")
+float_height = 0.8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0, 0)
+mesh = SubResource("SphereMesh_urris")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tdvqc")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackBuff" load_steps=2 format=3 uid="uid://dcudbgi6i1u5t"]
+
+[ext_resource type="Script" uid="uid://blplw8lcr3qu2" path="res://scenes/attack_effects/attack_buffs.gd" id="1_flaxb"]
+
+[resource]
+script = ExtResource("1_flaxb")
+character_class = 2
+buff_title = "Bamboo"
+buff_damage = null
+buff_effect = null
+metadata/_custom_type_script = "uid://blplw8lcr3qu2"

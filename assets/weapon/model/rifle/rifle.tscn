@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxxmt0ij4ee2b"]
+
+[ext_resource type="PackedScene" uid="uid://d4k6i6avt0u2u" path="res://assets/weapon/model/rifle/gun_model.tscn" id="1_7noyn"]
+
+[node name="rifle" type="Node3D"]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0, 0, 0)
+
+[node name="gun" parent="." instance=ExtResource("1_7noyn")]

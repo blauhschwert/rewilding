@@ -16,6 +16,8 @@ var can_fire_next: bool = true
 var fire_rate_timer: float = 0.0
 
 @onready var shooting_timer = %ShootingTimer
+@onready var shooting_point = %ShootingPoint
+
 
 func _ready() -> void:
 	if current_weapon:
@@ -39,10 +41,12 @@ func spawn_weapon_model():
 		current_weapon_model.position = current_weapon.weapon_position
 
 func can_fire() -> bool:
-	return current_ammo > 0 and can_fire_next
+	var weapon_data = Managers.weapon_manager.weapons[Managers.weapon_manager.current_slot]
+	return weapon_data.ammo > 0 and can_fire_next
 
 func fire_weapon() -> void:
 	if can_fire():
+		Managers.weapon_manager.use_ammo(Managers.weapon_manager.current_slot)
 		current_ammo -= 1
 		
 		if is_debug:
@@ -88,6 +92,7 @@ func _perform_hitscan() -> void:
 		var query = PhysicsRayQueryParameters3D.create(from, to)
 		#query.collision_mask = 2
 		var result = space_state.intersect_ray(query)
+		
 	
 		if result:
 			print("Hit: ", result.collider.name, "at ", result.position)
@@ -120,7 +125,7 @@ func _spawn_projectile() -> void:
 	var projectile = current_weapon.projectile_scene.instantiate() as Projectile
 	get_tree().current_scene.add_child(projectile)
 	
-	projectile.global_position = camera.global_position
+	projectile.global_position = shooting_point.global_position
 	
 	var accuraccy_spread = (100 - current_weapon.accuracy) / 1000.0
 	
@@ -135,4 +140,19 @@ func _spawn_projectile() -> void:
 	projectile.look_at(projectile.global_position + foward, Vector3.UP)
 	
 	projectile.setup(velocity, current_weapon.damage)
+
+func switch_weapon(weapon_data: WeaponData) -> void:
+	current_weapon = weapon_data.weapon
 	
+	if current_weapon_model:
+		current_weapon_model.queue_free()
+		
+	spawn_weapon_model()
+	
+	weapon_state_chart.send_event("onIdle")
+	
+	print(current_weapon.weapon_name)
+
+func has_ammo() -> bool:
+	var weapon_data = Managers.weapon_manager.weapons[Managers.weapon_manager.current_slot]
+	return weapon_data.ammo > 0

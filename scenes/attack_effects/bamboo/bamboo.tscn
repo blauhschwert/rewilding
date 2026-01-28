@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddcwuc0ic4w40"]
+
+[ext_resource type="Shader" uid="uid://d1qd4o8dt061" path="res://scenes/attack_effects/bamboo/bamboo.gdshader" id="1_h3ttq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ptjr5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ddkr"]
+render_priority = 0
+shader = ExtResource("1_h3ttq")
+shader_parameter/stalk_color = Color(0.47142002, 0.81, 0.19440001, 1)
+shader_parameter/node_color = Color(0.31299162, 0.71, 0.2769, 1)
+shader_parameter/node_scale = 17.11
+shader_parameter/shift = 0.001
+shader_parameter/noise_scale = 450.855
+
+[sub_resource type="Animation" id="Animation_h3ttq"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(2.7, 2.7, 2.7), Vector3(1.8, 1.8, 1.8), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ptjr5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ddkr"]
+_data = {
+&"RESET": SubResource("Animation_ptjr5"),
+&"attack": SubResource("Animation_h3ttq")
+}
+
+[node name="Bamboo" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08, 0, 0, 0, 0.6, 0, 0, 0, 0.08, 0, 0.6082415, 0)
+mesh = SubResource("CylinderMesh_ptjr5")
+surface_material_override/0 = SubResource("ShaderMaterial_8ddkr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08, 0, 0, 0, 0.311, 0, 0, 0, 0.08, 0.09826964, 0.32391876, 0)
+mesh = SubResource("CylinderMesh_ptjr5")
+surface_material_override/0 = SubResource("ShaderMaterial_8ddkr")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08, 0, 0, 0, 0.5, 0, 0, 0, 0.08, -0.10583809, 0.50525284, 0)
+mesh = SubResource("CylinderMesh_ptjr5")
+surface_material_override/0 = SubResource("ShaderMaterial_8ddkr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8ddkr")
+}
