@@ -1,9 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://dunmg5aajo6bx"]
+[gd_scene load_steps=22 format=3 uid="uid://dunmg5aajo6bx"]
 
 [ext_resource type="PackedScene" uid="uid://ckg880c11ukwf" path="res://assets/enemy/robot/roboter.fbx" id="1_hga3e"]
 [ext_resource type="Texture2D" uid="uid://dvgi4adhybcet" path="res://assets/enemy/robot/textures/eyes.png" id="2_7sdux"]
 [ext_resource type="Script" uid="uid://bqfs1ul7qxdav" path="res://assets/enemy/robot/roboter_model.gd" id="2_k31ax"]
-[ext_resource type="Texture2D" uid="uid://bt1lj8tee5euc" path="res://assets/enemy/robot/textures/body.png" id="3_k31ax"]
+[ext_resource type="Material" uid="uid://c35q5coln8l16" path="res://assets/enemy/robot/textures/roboter_fire.tres" id="3_bcyhd"]
+[ext_resource type="Material" uid="uid://buflljld52fnf" path="res://assets/enemy/robot/textures/roboter_blue.tres" id="4_k31ax"]
+[ext_resource type="Material" uid="uid://x4yqhryk55wg" path="res://assets/enemy/robot/textures/roboter_earth.tres" id="5_wilh8"]
+[ext_resource type="PackedScene" uid="uid://c5wduvs1aer1r" path="res://assets/mask/mask_model.tscn" id="6_wilh8"]
+[ext_resource type="Material" uid="uid://dk4p1d4rfxect" path="res://assets/mask/variatons/mask_fire.tres" id="8_q3jgf"]
+[ext_resource type="Material" uid="uid://klla5eyldw80" path="res://assets/mask/variatons/mask_ice.tres" id="9_584ha"]
+[ext_resource type="Material" uid="uid://d0ydmaw2qvfbh" path="res://assets/mask/variatons/mask_earth.tres" id="10_rcxx0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_notpq"]
 albedo_texture = ExtResource("2_7sdux")
@@ -13,9 +19,6 @@ albedo_color = Color(0.13374999, 0.25, 0.095, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wilh8"]
 albedo_color = Color(0.13374999, 0.25, 0.095, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkcpw"]
-albedo_texture = ExtResource("3_k31ax")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1daxv"]
 albedo_color = Color(0.32, 0.32, 0.32, 1)
@@ -63,7 +66,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.6755161, 0, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -76,6 +79,46 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_upf8d"]
+resource_name = "die"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(5, 5, 5), Vector3(7, 7, 7), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/arms/left_arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16300888, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.8849556, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/arms/right_arm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16300888, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.6755161, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_7sdux"]
@@ -138,6 +181,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_notpq"]
 _data = {
 &"RESET": SubResource("Animation_k31ax"),
+&"die": SubResource("Animation_upf8d"),
 &"hurt": SubResource("Animation_7sdux"),
 &"walk": SubResource("Animation_notpq")
 }
@@ -145,6 +189,16 @@ _data = {
 [node name="roboter" instance=ExtResource("1_hga3e")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("2_k31ax")
+fire_skin = ExtResource("3_bcyhd")
+ice_skin = ExtResource("4_k31ax")
+earth_skin = ExtResource("5_wilh8")
+
+[node name="mask" parent="." index="0" instance=ExtResource("6_wilh8")]
+unique_name_in_owner = true
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, 0.043877654, -0.04014823)
+fire_skin = ExtResource("8_q3jgf")
+ice_skin = ExtResource("9_584ha")
+earth_skin = ExtResource("10_rcxx0")
 
 [node name="circle_2" parent="body/eyes" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_notpq")
@@ -164,9 +218,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bcyhd")
 [node name="hand_1" parent="body/arms/left_arm" index="3"]
 surface_material_override/0 = SubResource("StandardMaterial3D_bcyhd")
 
-[node name="right_arm" parent="body/arms" index="1"]
-transform = Transform3D(1, 0, 0, 0, -0.10452851, -0.9945219, 0, 0.9945219, -0.10452851, 0.0625, 0.15625, 0)
-
 [node name="cylinder_2" parent="body/arms/right_arm" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_wilh8")
 
@@ -180,8 +231,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wilh8")
 surface_material_override/0 = SubResource("StandardMaterial3D_wilh8")
 
 [node name="body_1" parent="body" index="2"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.125, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_tkcpw")
+surface_material_override/0 = ExtResource("4_k31ax")
 
 [node name="circle" parent="alarm" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_1daxv")
@@ -193,7 +245,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_upf8d")
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.00625, -0.0125, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_7sdux")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_notpq")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://qq7nabwb6mnn"]
 
 [ext_resource type="Script" uid="uid://bfk412xxjh6jo" path="res://scenes/ui/ui.gd" id="1_aac20"]
-[ext_resource type="Texture2D" uid="uid://gjj5npoxtieo" path="res://assets/gear/Gera.png" id="1_u7n8c"]
-[ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/fonts/ARCADECLASSIC.TTF" id="2_f5cxw"]
+[ext_resource type="Texture2D" uid="uid://gjj5npoxtieo" path="res://assets/etc/gear/Gera.png" id="1_u7n8c"]
+[ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/etc/fonts/ARCADECLASSIC.TTF" id="2_f5cxw"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -40,3 +40,16 @@ theme_override_fonts/font = ExtResource("2_f5cxw")
 theme_override_font_sizes/font_size = 46
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LiveForce" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_top = 55.0
+offset_right = 148.0
+offset_bottom = 142.0
+grow_horizontal = 2
+alignment = 1

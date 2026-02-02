@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://orjykqcr1abd"]
 
-[ext_resource type="Script" uid="uid://2utk6l1urm3w" path="res://assets/ui/reticle_draw.gd" id="1_1tpnu"]
+[ext_resource type="Script" uid="uid://2utk6l1urm3w" path="res://assets/etc/ui/reticle_draw.gd" id="1_1tpnu"]
 
 [node name="ReticleDraw" type="Control"]
 layout_mode = 3

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfuk5r5hxnj2w"]
+
+[ext_resource type="PackedScene" uid="uid://de7ci2cx4rr46" path="res://assets/attack_effects/rock/base_stone.tscn" id="1_0vgpb"]
+[ext_resource type="PackedScene" uid="uid://c7am8e16wqjpt" path="res://assets/attack_effects/rock/rock_kai.tscn" id="2_xoghf"]
+[ext_resource type="PackedScene" uid="uid://cluiti75wgpnl" path="res://assets/attack_effects/rock/rock_leaf.tscn" id="3_b0335"]
+
+[node name="rock_model" type="Node3D"]
+
+[node name="BaseStone" parent="." instance=ExtResource("1_0vgpb")]
+visible = false
+
+[node name="RockKai" parent="." instance=ExtResource("2_xoghf")]
+visible = false
+
+[node name="RockLeaf" parent="." instance=ExtResource("3_b0335")]
+visible = false

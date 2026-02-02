@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmeipk1gr1ojl"]
 
 [ext_resource type="Script" uid="uid://byhakbc4ga6bx" path="res://assets/enemy/spawner/mob_spawner_3d.gd" id="1_uyfve"]
-[ext_resource type="PackedScene" uid="uid://d1c874fi16iut" path="res://assets/enemy/robot/roboter_enemy.tscn" id="2_pb33k"]
+[ext_resource type="PackedScene" uid="uid://d1c874fi16iut" path="res://scenes/enemy/base_robo/roboter_enemy.tscn" id="2_pb33k"]
 [ext_resource type="PackedScene" uid="uid://b2ikhh3bfqwnd" path="res://assets/enemy/spawner/spawner_model.tscn" id="3_dr86q"]
 [ext_resource type="Shader" uid="uid://cn76qauif7lb1" path="res://assets/enemy/spawner/spawner_halo.gdshader" id="4_omm4l"]
 

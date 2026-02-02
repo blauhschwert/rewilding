@@ -1,0 +1,122 @@
+[gd_scene load_steps=19 format=3 uid="uid://dykn8xb400etw"]
+
+[ext_resource type="Script" uid="uid://dgyprypdpvxwx" path="res://assets/vfx/explosion/explosion.gd" id="1_1ovcq"]
+[ext_resource type="AudioStream" uid="uid://cde3fjjntc7fc" path="res://assets/sounds/explosion.wav" id="2_xhhbj"]
+
+[sub_resource type="Curve" id="Curve_sxou1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6220931, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qcal2"]
+curve = SubResource("Curve_sxou1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sxou1"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_qcal2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcal2"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.40000004, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1ovcq"]
+material = SubResource("StandardMaterial3D_qcal2")
+top_radius = 0.1
+bottom_radius = 0.0
+radial_segments = 32
+rings = 2
+
+[sub_resource type="Curve" id="Curve_735jy"]
+_data = [Vector2(0.046511635, 0), 0.0, 0.0, 0, 0, Vector2(0.6046512, 0.8089888), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rqlyk"]
+curve = SubResource("Curve_735jy")
+
+[sub_resource type="Gradient" id="Gradient_sxou1"]
+offsets = PackedFloat32Array(0.020547945, 1)
+colors = PackedColorArray(1, 0.73333335, 0, 1, 1, 0.20000005, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qcal2"]
+gradient = SubResource("Gradient_sxou1")
+
+[sub_resource type="Curve" id="Curve_1ovcq"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 2.8, 0, 0, Vector2(1, 0.8314607), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xhhbj"]
+curve = SubResource("Curve_1ovcq")
+
+[sub_resource type="Curve" id="Curve_udcig"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2906977, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_735jy"]
+curve = SubResource("Curve_udcig")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rqlyk"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_735jy")
+color = Color(0.18, 0.156, 0, 1)
+color_ramp = SubResource("GradientTexture1D_qcal2")
+alpha_curve = SubResource("CurveTexture_rqlyk")
+emission_curve = SubResource("CurveTexture_xhhbj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k3dt"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_811l3"]
+material = SubResource("StandardMaterial3D_2k3dt")
+radial_segments = 8
+rings = 4
+
+[node name="Explosion" type="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_1ovcq")
+
+[node name="Debris" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_sxou1")
+draw_pass_1 = SubResource("CylinderMesh_1ovcq")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_rqlyk")
+draw_pass_1 = SubResource("SphereMesh_811l3")
+
+[node name="Fire" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_rqlyk")
+draw_pass_1 = SubResource("SphereMesh_811l3")
+
+[node name="ExplosionSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_xhhbj")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwmke767yf3ib"]
+
+[ext_resource type="Script" uid="uid://cip4sq34b1g3d" path="res://scenes/enemy/attack/rock_shoot/rock.gd" id="1_taakv"]
+[ext_resource type="Resource" uid="uid://dr56uaxlbjtfd" path="res://assets/attack_effects/rock/RockBase.tres" id="2_hnvol"]
+[ext_resource type="PackedScene" uid="uid://dfuk5r5hxnj2w" path="res://assets/attack_effects/rock/rock_model.tscn" id="3_d27u0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tcyik"]
+radius = 1.0
+
+[node name="RockShotAttack" type="Area3D"]
+script = ExtResource("1_taakv")
+rock_data = ExtResource("2_hnvol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tcyik")
+
+[node name="rock_model" parent="." instance=ExtResource("3_d27u0")]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="rock_model"]

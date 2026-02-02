@@ -10,7 +10,6 @@ var wait_multiplier = 1.9
 @onready var marker_3d = %Marker3D
 @onready var timer = %Timer
 
-
 func _on_timer_timeout():
 	var new_mob = mob_to_spawn.instantiate()
 	add_child(new_mob)

@@ -1,6 +1,10 @@
 class_name WeaponManager
 extends Node
 
+@export_category("Debug")
+@export var is_debug : bool = true
+
+@export_category("References")
 @export var weapons: Dictionary[int, WeaponData] = {}
 @export var player: PlayerController
 
@@ -22,6 +26,14 @@ func _ready() -> void:
 	call_deferred("initialize_starting_weapon")
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP and current_slot < 2:
+				current_slot += 1
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and current_slot > 1:
+				current_slot -= 1
+		switch_to_slot(current_slot)
+	
 	for i in range(0,9):
 		if event.is_action_pressed("weapon_" + str(i)):
 			switch_to_slot(i) 
@@ -37,7 +49,8 @@ func use_ammo(slot: int, amount: int = 1) -> void:
 	if slot in weapons:
 		weapons[slot].ammo = max(0, weapons[slot].ammo - amount)
 		
-		print("Fired ", weapons[slot].weapon.weapon_name, "! Ammo:  ", weapons[slot].ammo)
+		if is_debug:
+			print("Fired ", weapons[slot].weapon.weapon_name, "! Ammo:  ", weapons[slot].ammo)
 
 func get_current_ammo() -> int:
 	return weapons[current_slot].ammo 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://csppsar6apl7v"]
+
+[ext_resource type="Script" uid="uid://tis2nd61ad5r" path="res://scenes/enemy/attack/close_attack.gd" id="1_0coqs"]
+[ext_resource type="PackedScene" uid="uid://dykn8xb400etw" path="res://assets/vfx/explosion/explosion.tscn" id="2_7sw0j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_skyfl"]
+radius = 1.733048
+
+[node name="CloseAttack" type="Area3D"]
+collision_layer = 8
+script = ExtResource("1_0coqs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14253414)
+shape = SubResource("SphereShape3D_skyfl")
+
+[node name="Explosion" parent="." instance=ExtResource("2_7sw0j")]

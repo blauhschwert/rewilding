@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1c874fi16iut"]
+
+[ext_resource type="Script" uid="uid://dpybrk07lvphv" path="res://scenes/enemy/base_robo/roboter_enemy.gd" id="1_x101l"]
+[ext_resource type="Resource" uid="uid://dn5hrjjigjkoi" path="res://scenes/enemy/robo_data/fire_stats.tres" id="2_m8r4f"]
+[ext_resource type="PackedScene" uid="uid://dunmg5aajo6bx" path="res://assets/enemy/robot/roboter.tscn" id="2_xsb87"]
+[ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/etc/fonts/ARCADECLASSIC.TTF" id="3_7gql8"]
+[ext_resource type="PackedScene" uid="uid://csppsar6apl7v" path="res://scenes/enemy/attack/close_attack.tscn" id="5_ewljj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7gql8"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x101l"]
+radius = 0.70458984
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gql8"]
+bg_color = Color(0, 0.4627451, 0.105882354, 0.49803922)
+skew = Vector2(0.3, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.6666667)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_right = 60.0
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8r4f"]
+bg_color = Color(0, 0.70980394, 0.10980392, 1)
+skew = Vector2(0.3, 0)
+corner_detail = 4
+expand_margin_right = 60.0
+shadow_size = 3
+
+[node name="RoboterEnemy" type="RigidBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_x101l")
+enemy_data = ExtResource("2_m8r4f")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.929069, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_7gql8")
+
+[node name="roboter_model" parent="." instance=ExtResource("2_xsb87")]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92974603, 0)
+shape = SubResource("CapsuleShape3D_x101l")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.8
+one_shot = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="UI" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelCounter" type="Label" parent="SubViewport/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.34500003
+anchor_right = 1.0
+anchor_bottom = 0.66800004
+offset_top = -0.13500977
+offset_right = -322.5
+offset_bottom = -1.2430115
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.289, 0.32810003, 0.34, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8784314)
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_7gql8")
+theme_override_font_sizes/font_size = 64
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.5
+anchor_right = 0.6
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -13.5
+offset_right = 95.599976
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_7gql8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m8r4f")
+max_value = 50.0
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="HP" type="Label" parent="SubViewport/UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 270.0
+offset_top = -15.0
+offset_right = 364.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.87100005, 1, 0.13999999, 1)
+theme_override_fonts/font = ExtResource("3_7gql8")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseAttack" parent="." instance=ExtResource("5_ewljj")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8425089e-09, 1.2242956, -0.021075845)
+
+[node name="CollisionShape3D" parent="CloseAttack" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7460202e-08, 0, 0.05718732)
+
+[node name="Explosion" parent="CloseAttack" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7765756e-08, 0, -1.0039232)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="CloseAttack" to="." method="_on_ranged_attack_body_entered"]
+
+[editable path="CloseAttack"]

@@ -18,7 +18,6 @@ var fire_rate_timer: float = 0.0
 @onready var shooting_timer = %ShootingTimer
 @onready var shooting_point = %ShootingPoint
 
-
 func _ready() -> void:
 	if current_weapon:
 		spawn_weapon_model()

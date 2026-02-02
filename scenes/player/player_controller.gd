@@ -1,9 +1,14 @@
 class_name PlayerController
 extends CharacterBody3D
 
+signal take_damage(amount)
+signal health_finished
+
 const MIN_RUN_VELOCITY := 1.0
 
 @export var debug : bool = false
+@export_category("Character Stats")
+@export var health = 3 
 @export_category("References")
 @export var camera : CameraController
 @export var camera_effects : CameraEffect
@@ -47,6 +52,8 @@ var _target_fov := 0.0
 @warning_ignore("unused_private_class_variable")
 @onready var _orginal_speed := default_speed
 
+func _ready():
+	take_damage.connect(_take_damage)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -92,6 +99,13 @@ func _physics_process(delta: float) -> void:
 	#new_bullet.global_transform = shooting_point.global_transform
 	#shooting_timer.start()
 	#shooting_sound.play_shoot()
+
+func _take_damage(amount) -> void:
+	if health > 0:
+		health -= amount
+		print(health)
+	else:
+		health_finished.emit()
 
 
 func update_rotation(rotation_input) -> void:

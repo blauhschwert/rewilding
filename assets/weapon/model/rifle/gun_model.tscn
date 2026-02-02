@@ -4,9 +4,10 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqn5c"]
 albedo_color = Color(0.64, 0.40416, 0.21119998, 1)
+roughness = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0fn6"]
-albedo_color = Color(0.3254902, 0.44705883, 0.72156864, 1)
+albedo_color = Color(0.39999998, 0.71999997, 1, 1)
 metallic = 1.0
 metallic_specular = 0.65
 roughness = 0.8
@@ -14,7 +15,7 @@ roughness = 0.8
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq5tf"]
 albedo_color = Color(0.39, 0.39, 0.39, 1)
 
-[node name="gun" instance=ExtResource("1_dqn5c")]
+[node name="gun_base" instance=ExtResource("1_dqn5c")]
 
 [node name="cylinder" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_dqn5c")
