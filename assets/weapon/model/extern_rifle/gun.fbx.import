@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://g357f1v7dceu"
-path="res://.godot/imported/mask.fbx-adb1805d08c0b1efb8c9cfa6dcab8c49.scn"
+uid="uid://d1d0n6swv7a5o"
+path="res://.godot/imported/gun.fbx-28b85fe2fa92a51f976a943dd00c4e0c.scn"
 
 [deps]
 
-source_file="res://assets/mask/mask.fbx"
-dest_files=["res://.godot/imported/mask.fbx-adb1805d08c0b1efb8c9cfa6dcab8c49.scn"]
+source_file="res://assets/weapon/model/extern_rifle/gun.fbx"
+dest_files=["res://.godot/imported/gun.fbx-28b85fe2fa92a51f976a943dd00c4e0c.scn"]
 
 [params]
 

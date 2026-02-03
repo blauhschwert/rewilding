@@ -13,6 +13,9 @@ var cur_health : int = 0
 @onready var player = get_node("/root/Game/Player")
 @onready var progress_bar = %ProgressBar
 @onready var close_attack = %CloseAttack
+@onready var robo_sound = $RoboSound
+@onready var sound_wave = %SoundWave
+
 
 func _ready():
 	roboter_model.create_robo_skin(enemy_data.robo_type)
@@ -23,8 +26,13 @@ func _ready():
 	randomize()
 	enemy_data.speed = randi_range(3,5)
 	global_position.y = 0
+	
 
 func _physics_process(_delta):
+	if sound_wave.is_stopped():
+		sound_wave.start(2.7)
+	
+	
 	delta_health()
 	var direction = global_position.direction_to(player.global_position)
 	direction.y = 0.0
@@ -61,6 +69,10 @@ func _on_ranged_attack_body_entered(body):
 	if body is PlayerController:
 		close_attack.explode()
 		roboter_model.die()
-		await close_attack.exploded
 		emit_damage.emit(enemy_data.attack)
+		await close_attack.exploded
 		queue_free()
+
+
+func _on_sound_wave_timeout():
+	robo_sound.play()

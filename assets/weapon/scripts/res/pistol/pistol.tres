@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dvblrhvdv1fgy" path="res://assets/weapon/scripts/weapon.gd" id="1_2ic0y"]
 [ext_resource type="PackedScene" uid="uid://cbxh55nakdvuq" path="res://scenes/player/weapons/projectile_leaf.tscn" id="1_am6mo"]
-[ext_resource type="PackedScene" uid="uid://02hcnha1futo" path="res://assets/weapon/model/pistol/weapon.tscn" id="2_xx41b"]
+[ext_resource type="PackedScene" uid="uid://bvp3lff5uiu13" path="res://scenes/weapons/pistol_kai/pistol_kai.tscn" id="3_v3qtu"]
 
 [resource]
 script = ExtResource("1_2ic0y")
 damage = 1.5
-max_ammo = 14
 fire_rate = 3.0
 projectile_range = 30.0
 accuracy = 75
 projectile_speed = 35.0
 is_hitscan = false
-weapon_model = ExtResource("2_xx41b")
+weapon_model = ExtResource("3_v3qtu")
 projectile_scene = ExtResource("1_am6mo")
+weapon_position = Vector3(0.95, -0.35, -1.6)
 metadata/_custom_type_script = "uid://dvblrhvdv1fgy"

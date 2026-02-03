@@ -1,6 +1,8 @@
 class_name WeaponManager
 extends Node
 
+signal send_ammo(cur_ammo)
+
 @export_category("Debug")
 @export var is_debug : bool = true
 
@@ -9,6 +11,7 @@ extends Node
 @export var player: PlayerController
 
 var current_slot: int = 1
+var current_weapon_data : WeaponData
 
 func _ready() -> void:
 	add_to_group("weapon_manager")
@@ -44,6 +47,7 @@ func switch_to_slot(slot: int) -> void:
 	if weapon_data and weapon_data.unlocked:
 		current_slot = slot
 		player.weaopon_controller.switch_weapon(weapon_data)
+		send_ammo.emit(weapons[slot].ammo)
 
 func use_ammo(slot: int, amount: int = 1) -> void:
 	if slot in weapons:
@@ -51,6 +55,9 @@ func use_ammo(slot: int, amount: int = 1) -> void:
 		
 		if is_debug:
 			print("Fired ", weapons[slot].weapon.weapon_name, "! Ammo:  ", weapons[slot].ammo)
+
+	
+	send_ammo.emit(weapons[slot].ammo)
 
 func get_current_ammo() -> int:
 	return weapons[current_slot].ammo 

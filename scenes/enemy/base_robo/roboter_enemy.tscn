@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1c874fi16iut"]
+[gd_scene load_steps=11 format=3 uid="uid://d1c874fi16iut"]
 
 [ext_resource type="Script" uid="uid://dpybrk07lvphv" path="res://scenes/enemy/base_robo/roboter_enemy.gd" id="1_x101l"]
 [ext_resource type="Resource" uid="uid://dn5hrjjigjkoi" path="res://scenes/enemy/robo_data/fire_stats.tres" id="2_m8r4f"]
 [ext_resource type="PackedScene" uid="uid://dunmg5aajo6bx" path="res://assets/enemy/robot/roboter.tscn" id="2_xsb87"]
 [ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/etc/fonts/ARCADECLASSIC.TTF" id="3_7gql8"]
 [ext_resource type="PackedScene" uid="uid://csppsar6apl7v" path="res://scenes/enemy/attack/close_attack.tscn" id="5_ewljj"]
+[ext_resource type="AudioStream" uid="uid://b8r3fkkbfwmpx" path="res://assets/sounds/robo/robo_sound.wav" id="6_m843a"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7gql8"]
 viewport_path = NodePath("SubViewport")
@@ -135,7 +136,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7460202e-08, 0, 0.05718732
 [node name="Explosion" parent="CloseAttack" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7765756e-08, 0, -1.0039232)
 
+[node name="RoboSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3923466, 0)
+stream = ExtResource("6_m843a")
+
+[node name="SoundWave" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.85
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="CloseAttack" to="." method="_on_ranged_attack_body_entered"]
+[connection signal="timeout" from="SoundWave" to="." method="_on_sound_wave_timeout"]
 
 [editable path="CloseAttack"]

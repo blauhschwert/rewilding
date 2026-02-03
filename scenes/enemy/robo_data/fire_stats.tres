@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_siqk0")
 hp_base = 5
-attack = 3
+attack = 2
 speed = null
 metadata/_custom_type_script = "uid://jclcmwpibugf"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvp3lff5uiu13"]
+
+[ext_resource type="PackedScene" uid="uid://c0enq751jbkba" path="res://assets/weapon/model/pistol_kai/derringer.glb" id="1_uf7fp"]
+
+[node name="PistolKai" type="Node3D"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="derringer" parent="." instance=ExtResource("1_uf7fp")]

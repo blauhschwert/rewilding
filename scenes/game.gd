@@ -5,6 +5,7 @@ extends Node3D
 
 func _ready():
 	$UI.create_live_ui(player.health)
+	$UI.game_over.connect(_on_ui_game_over)
 	$BackgroundMusik.play()
 	randomize()
 
@@ -20,3 +21,7 @@ func _on_mob_spawner_3d_mob_spawned(mob):
 
 func _on_ui_take_damage(amount):
 	$UI.remove_live.emit(amount)
+
+
+func _on_ui_game_over():
+	get_tree().paused = true

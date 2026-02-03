@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://py80awq8qfsm"]
+
+[ext_resource type="PackedScene" uid="uid://i7o6tsoof54v" path="res://assets/npc/npc.tscn" id="1_mpmej"]
+[ext_resource type="Texture2D" uid="uid://b1xfrtlcytor" path="res://assets/etc/Icon/Patrone.png" id="2_mpmej"]
+
+[node name="MunitionSeller" type="Node3D"]
+
+[node name="NPC" parent="." instance=ExtResource("1_mpmej")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.010439098, 2.0185194, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_mpmej")

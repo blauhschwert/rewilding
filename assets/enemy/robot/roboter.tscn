@@ -6,10 +6,10 @@
 [ext_resource type="Material" uid="uid://c35q5coln8l16" path="res://assets/enemy/robot/textures/roboter_fire.tres" id="3_bcyhd"]
 [ext_resource type="Material" uid="uid://buflljld52fnf" path="res://assets/enemy/robot/textures/roboter_blue.tres" id="4_k31ax"]
 [ext_resource type="Material" uid="uid://x4yqhryk55wg" path="res://assets/enemy/robot/textures/roboter_earth.tres" id="5_wilh8"]
-[ext_resource type="PackedScene" uid="uid://c5wduvs1aer1r" path="res://assets/mask/mask_model.tscn" id="6_wilh8"]
-[ext_resource type="Material" uid="uid://dk4p1d4rfxect" path="res://assets/mask/variatons/mask_fire.tres" id="8_q3jgf"]
-[ext_resource type="Material" uid="uid://klla5eyldw80" path="res://assets/mask/variatons/mask_ice.tres" id="9_584ha"]
-[ext_resource type="Material" uid="uid://d0ydmaw2qvfbh" path="res://assets/mask/variatons/mask_earth.tres" id="10_rcxx0"]
+[ext_resource type="PackedScene" uid="uid://c5wduvs1aer1r" path="res://assets/etc/mask/mask_model.tscn" id="6_wilh8"]
+[ext_resource type="Material" uid="uid://dk4p1d4rfxect" path="res://assets/etc/mask/variatons/mask_fire.tres" id="8_q3jgf"]
+[ext_resource type="Material" uid="uid://klla5eyldw80" path="res://assets/etc/mask/variatons/mask_ice.tres" id="9_584ha"]
+[ext_resource type="Material" uid="uid://d0ydmaw2qvfbh" path="res://assets/etc/mask/variatons/mask_earth.tres" id="10_rcxx0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_notpq"]
 albedo_texture = ExtResource("2_7sdux")

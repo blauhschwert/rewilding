@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8qbtki7tuf5c"]
+[gd_scene load_steps=15 format=3 uid="uid://8qbtki7tuf5c"]
 
 [ext_resource type="PackedScene" uid="uid://bqo1q5or8tdei" path="res://assets/city/city.tscn" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://dhynoyybxlu2" path="res://scenes/game.gd" id="1_s0nni"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://4fw7r3wj2knf" path="res://scenes/player/player.tscn" id="6_400sg"]
 [ext_resource type="AudioStream" uid="uid://b6l70fgtss7c7" path="res://assets/sounds/minijam_1.mp3" id="6_aug50"]
 [ext_resource type="PackedScene" uid="uid://bmeipk1gr1ojl" path="res://assets/enemy/spawner/mob_spawner_3d.tscn" id="6_kiw3p"]
+[ext_resource type="PackedScene" uid="uid://cr3x233srsgsf" path="res://scenes/npc/attack_seller/weapon_seller.tscn" id="11_3xj3m"]
+[ext_resource type="PackedScene" uid="uid://py80awq8qfsm" path="res://scenes/npc/munition_selller/munition_seller.tscn" id="11_mcffj"]
+[ext_resource type="PackedScene" uid="uid://b7g3bmaj2xg64" path="res://scenes/npc/health_seller/health_seller.tscn" id="13_2rd6h"]
+[ext_resource type="PackedScene" uid="uid://dq27tdpqk31w3" path="res://scenes/npc/iron/iron_model.tscn" id="13_7ua8r"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_s0nni")
@@ -18,6 +22,7 @@ script = ExtResource("1_s0nni")
 
 [node name="WeaponManager" type="Node" parent="Managers" node_paths=PackedStringArray("player") groups=["player"]]
 script = ExtResource("2_kiw3p")
+is_debug = false
 weapons = Dictionary[int, ExtResource("3_qy1jj")]({
 1: ExtResource("4_3xj3m"),
 2: ExtResource("5_mcffj")
@@ -30,6 +35,14 @@ stream = ExtResource("6_aug50")
 [node name="MobSpawner3D" parent="." instance=ExtResource("6_kiw3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3403397, 0, 13.150526)
 
+[node name="MobSpawner3D2" parent="." instance=ExtResource("6_kiw3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.40914, 0, 28.771574)
+is_active = true
+
+[node name="MobSpawner3D3" parent="." instance=ExtResource("6_kiw3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.61336, 0, -6.1481266)
+is_active = true
+
 [node name="City" parent="." instance=ExtResource("1_ibkli")]
 
 [node name="UI" parent="." instance=ExtResource("4_78awf")]
@@ -38,6 +51,23 @@ mouse_filter = 2
 [node name="Player" parent="." instance=ExtResource("6_400sg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.141129, -4.851794)
-health = 2
+health = 5
 
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="MunitionSeller" parent="NPCs" instance=ExtResource("11_mcffj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4923162, 0.16851127, -29.354694)
+
+[node name="WeaponSeller" parent="NPCs" instance=ExtResource("11_3xj3m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29.417263, 0, 17.631174)
+
+[node name="Iron" parent="NPCs/WeaponSeller" instance=ExtResource("13_7ua8r")]
+transform = Transform3D(-0.3925288, 0, -0.3097114, 0, 0.5, 0, 0.3097114, 0, -0.3925288, 1.4015179, 0, 0)
+
+[node name="HealthSeller" parent="NPCs" instance=ExtResource("13_2rd6h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -32.393486, 0.250026, -14.023783)
+
+[connection signal="send_ammo" from="Managers/WeaponManager" to="Player" method="_on_weapon_manager_send_ammo"]
 [connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="MobSpawner3D2" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="MobSpawner3D3" to="." method="_on_mob_spawner_3d_mob_spawned"]

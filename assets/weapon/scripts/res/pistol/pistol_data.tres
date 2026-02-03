@@ -7,5 +7,5 @@
 script = ExtResource("1_gwhaf")
 weapon = ExtResource("2_gwhaf")
 unlocked = true
-ammo = 14
+ammo = 16
 metadata/_custom_type_script = "uid://ctny5b1x8c115"

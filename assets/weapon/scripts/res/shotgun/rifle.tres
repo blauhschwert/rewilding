@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cbxh55nakdvuq" path="res://scenes/player/weapons/projectile_leaf.tscn" id="1_8nqfw"]
 [ext_resource type="Script" uid="uid://dvblrhvdv1fgy" path="res://assets/weapon/scripts/weapon.gd" id="2_3xlh2"]
-[ext_resource type="PackedScene" uid="uid://cxxmt0ij4ee2b" path="res://assets/weapon/model/rifle/rifle.tscn" id="3_8nqfw"]
+[ext_resource type="PackedScene" uid="uid://cgu78g7r4nay5" path="res://scenes/weapons/extern_rifle_base/extern_rifle.tscn" id="3_8nqfw"]
 
 [resource]
 script = ExtResource("2_3xlh2")
 weapon_name = "Rifle"
 damage = 2.0
-max_ammo = 34
 fire_rate = 8.0
 is_automatic = true
 projectile_range = 35.0

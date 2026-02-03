@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3khw6wxldksm"]
+
+[ext_resource type="PackedScene" uid="uid://d1d0n6swv7a5o" path="res://assets/weapon/model/extern_rifle/gun.fbx" id="1_5y3wc"]
+[ext_resource type="Texture2D" uid="uid://dcwvfe0co4aw6" path="res://assets/weapon/model/extern_rifle/gun_1.png" id="2_470vp"]
+[ext_resource type="Texture2D" uid="uid://cbyu5cdp8mj73" path="res://assets/weapon/model/extern_rifle/gun_0.png" id="2_yx4hu"]
+[ext_resource type="Shader" uid="uid://cd2fe8ig2rvd2" path="res://assets/weapon/model/extern_rifle/wood.gdshader" id="3_yx4hu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k11hv"]
+albedo_texture = ExtResource("2_yx4hu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k11hv"]
+render_priority = 0
+shader = ExtResource("3_yx4hu")
+shader_parameter/light_color = Color(0.57, 0.4009, 0.06270001, 1)
+shader_parameter/dark_color = Color(0.83, 0.5312, 0.23239997, 1)
+shader_parameter/ring_scale = 3.885
+shader_parameter/wave_scale = 8.849
+shader_parameter/random_scale = 4.73
+shader_parameter/noise_scale = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ob64t"]
+next_pass = SubResource("ShaderMaterial_k11hv")
+albedo_texture = ExtResource("2_470vp")
+
+[node name="gun" instance=ExtResource("1_5y3wc")]
+
+[node name="Object_002" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_k11hv")
+
+[node name="Object_004" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ob64t")

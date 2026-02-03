@@ -1,6 +1,8 @@
 class_name WeaponController
 extends Node
 
+signal send_ammo(max,cur)
+
 @export_category("Helpers")
 @export var is_debug : bool = false
 
@@ -29,7 +31,6 @@ func _process(delta : float) -> void:
 		if fire_rate_timer <= 0:
 			can_fire_next = true
 
-
 func spawn_weapon_model():
 	if current_weapon_model:
 		current_weapon_model.queue_free()
@@ -42,6 +43,7 @@ func spawn_weapon_model():
 func can_fire() -> bool:
 	var weapon_data = Managers.weapon_manager.weapons[Managers.weapon_manager.current_slot]
 	return weapon_data.ammo > 0 and can_fire_next
+
 
 func fire_weapon() -> void:
 	if can_fire():
@@ -150,7 +152,8 @@ func switch_weapon(weapon_data: WeaponData) -> void:
 	
 	weapon_state_chart.send_event("onIdle")
 	
-	print(current_weapon.weapon_name)
+	if is_debug:
+		print(current_weapon.weapon_name)
 
 func has_ammo() -> bool:
 	var weapon_data = Managers.weapon_manager.weapons[Managers.weapon_manager.current_slot]

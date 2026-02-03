@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqnb0i7384n8a"
-path.s3tc="res://.godot/imported/mask_0.png-67af48c0091216a23fe21b0fca45cf00.s3tc.ctex"
+uid="uid://6yaefm7qyahv"
+path.s3tc="res://.godot/imported/lightning_BaseColorLow.png-ec187da4806ebef6acd553fee394c5e9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2630bea14ade8fba106a1bd318e177b1"
+"md5": "b3e3790f9ded70dd3747c5395f29192c"
 }
 
 [deps]
 
-source_file="res://assets/mask/mask_0.png"
-dest_files=["res://.godot/imported/mask_0.png-67af48c0091216a23fe21b0fca45cf00.s3tc.ctex"]
+source_file="res://assets/weapon/model/shotgun/lightning_BaseColorLow.png"
+dest_files=["res://.godot/imported/lightning_BaseColorLow.png-ec187da4806ebef6acd553fee394c5e9.s3tc.ctex"]
 
 [params]
 

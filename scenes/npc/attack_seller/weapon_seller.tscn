@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr3x233srsgsf"]
+
+[ext_resource type="PackedScene" uid="uid://i7o6tsoof54v" path="res://assets/npc/npc.tscn" id="1_xmxpw"]
+[ext_resource type="Texture2D" uid="uid://bka8bdx2njjg8" path="res://assets/etc/Icon/Weapon.png" id="2_y14q1"]
+
+[node name="WeaponSeller" type="Node3D"]
+
+[node name="NPC" parent="." instance=ExtResource("1_xmxpw")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.038335145, 2.1021261, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_y14q1")

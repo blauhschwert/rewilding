@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://4fw7r3wj2knf"]
+[gd_scene load_steps=37 format=3 uid="uid://4fw7r3wj2knf"]
 
 [ext_resource type="Script" uid="uid://bd6g6lv5x3j13" path="res://scenes/player/components/mouse_capture.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bhwawg0v1h5ep" path="res://scenes/player/player_controller.gd" id="1_dovo2"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://cw3cuy0wb6x5s" path="res://scenes/player/components/interaction_raycast.gd" id="4_ioxgp"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="4_qek5x"]
 [ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="5_5gtgg"]
+[ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/etc/fonts/ARCADECLASSIC.TTF" id="5_iqsei"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="6_h17s1"]
+[ext_resource type="Texture2D" uid="uid://b1xfrtlcytor" path="res://assets/etc/Icon/Patrone.png" id="6_tffgl"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="7_je7p5"]
 [ext_resource type="Script" uid="uid://2ovm8e7f0r2a" path="res://scenes/player/components/step_climber.gd" id="8_007i1"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="8_fm80t"]
@@ -38,7 +40,11 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yj68g"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_pk8ii"]
+viewport_path = NodePath("CanvasLayer/WeaponAmmo")
+
 [node name="PlayerController" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_effects", "state_chart", "weaopon_controller", "standing_collision", "crouching_collision", "crouch_check", "interaction_raycast") groups=["player"]]
+collision_mask = 2
 script = ExtResource("1_dovo2")
 camera = NodePath("CameraController")
 camera_effects = NodePath("CameraController/Camera3D")
@@ -77,14 +83,74 @@ script = ExtResource("4_cnsyf")
 player = NodePath("../..")
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraController/Camera3D"]
+unique_name_in_owner = true
 target_position = Vector3(0, 0, -3)
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false
 debug_shape_custom_color = Color(0.36941668, 0.65, 0.19500001, 1)
 debug_shape_thickness = 1
 script = ExtResource("4_ioxgp")
 
 [node name="ShootingPoint" type="Marker3D" parent="CameraController"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63511646, -0.1865241, -1.1715487)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.635, -0.16581178, -1.742)
+
+[node name="MuntionSrpite" type="Sprite3D" parent="CameraController"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.095523, -0.07175475, -1.508879)
+billboard = 1
+texture = SubResource("ViewportTexture_pk8ii")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionContianer" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -115.0
+offset_right = 148.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractLabel" type="Label" parent="CanvasLayer/InteractionContianer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.87, 0.14790002, 0.71354496, 0.54901963)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_iqsei")
+theme_override_font_sizes/font_size = 32
+text = "Press \"E\" to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WeaponAmmo" type="SubViewport" parent="CanvasLayer"]
+transparent_bg = true
+size = Vector2i(425, 100)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/WeaponAmmo"]
+offset_right = 97.0
+offset_bottom = 97.0
+texture = ExtResource("6_tffgl")
+expand_mode = 2
+
+[node name="MunitionLabel" type="Label" parent="CanvasLayer/WeaponAmmo"]
+unique_name_in_owner = true
+offset_left = 101.0
+offset_top = 26.0
+offset_right = 274.0
+offset_bottom = 71.0
+theme_override_colors/font_shadow_color = Color(0.81, 0.432, 0, 0.68235296)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_iqsei")
+theme_override_font_sizes/font_size = 38
 
 [node name="Components" type="Node" parent="."]
 
@@ -95,8 +161,8 @@ script = ExtResource("1_8afob")
 script = ExtResource("8_007i1")
 
 [node name="WeaponContoller" type="Node" parent="Components" node_paths=PackedStringArray("camera", "weapon_model_parent", "weapon_state_chart", "player_character") groups=["player"]]
+unique_name_in_owner = true
 script = ExtResource("9_6cv16")
-is_debug = true
 camera = NodePath("../../CameraController/Camera3D")
 current_weapon = ExtResource("10_j4nxn")
 weapon_model_parent = NodePath("../../CameraController/Camera3D")
@@ -318,6 +384,7 @@ script = ExtResource("29_pk8ii")
 [node name="EmptyState" type="Node" parent="WeaponStateMachine"]
 script = ExtResource("30_5mf0n")
 
+[connection signal="send_ammo" from="Components/WeaponContoller" to="." method="_on_weapon_contoller_send_ammo"]
 [connection signal="state_physics_processing" from="StateChart/Root/Movement/Grounded" to="StateMachine/MovementState/GroundedState" method="_on_grounded_state_physics_processing"]
 [connection signal="state_processing" from="StateChart/Root/Movement/Grounded/Idle" to="StateMachine/MovementState/GroundedState/IdleState" method="_on_idle_state_processing"]
 [connection signal="state_physics_processing" from="StateChart/Root/Movement/Grounded/Moving" to="StateMachine/MovementState/GroundedState/MovingState" method="_on_moving_state_physics_processing"]

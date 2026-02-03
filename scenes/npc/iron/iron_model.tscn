@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq27tdpqk31w3"]
+
+[ext_resource type="PackedScene" uid="uid://b5tra5ayfsaaf" path="res://assets/npc/iron/strong_medieval_anvil.glb" id="1_defvk"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_defvk")]

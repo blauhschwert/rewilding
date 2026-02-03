@@ -7,5 +7,5 @@ signal exploded
 
 func explode():
 	explosion.explode()
-	await get_tree().create_timer(1.2).timeout
+	await get_tree().create_timer(0.8).timeout
 	exploded.emit()

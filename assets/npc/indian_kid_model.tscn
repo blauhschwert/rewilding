@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpivubrq8bigd"]
+
+[ext_resource type="PackedScene" uid="uid://c0d80bgis84ao" path="res://assets/npc/indian_kid_character_3d_model.glb" id="1_cot1r"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_cot1r")]

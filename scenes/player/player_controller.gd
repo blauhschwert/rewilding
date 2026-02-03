@@ -49,8 +49,11 @@ var _target_fov := 0.0
 @onready var shooting_sound = %ShootingSound
 
 @onready var _default_field_of_view := camera_effects.fov
-@warning_ignore("unused_private_class_variable")
 @onready var _orginal_speed := default_speed
+
+@onready var munition_label = %MunitionLabel
+@onready var weapon_contoller = %WeaponContoller
+
 
 func _ready():
 	take_damage.connect(_take_damage)
@@ -63,12 +66,19 @@ func _physics_process(delta: float) -> void:
 		_target_speed = sprint_speed
 		_target_fov = sprint_field_of_view
 	else:
-		_target_speed = default_speed
+		_target_speed = _orginal_speed
 		_target_fov = _default_field_of_view
+	
+	%InteractLabel.hide()
+	if %RayCast3D.is_colliding():
+		var target = $%RayCast3D.get_collider()
+		if target.has_method("interact"):
+			%InteractLabel.show()
+			if Input.is_action_just_pressed("interactable"):
+				target.interact()
 	
 	speed = lerp(default_speed, _target_speed, delta * acceleration)
 	camera_effects.fov = lerp(camera_effects.fov, _target_fov, delta * acceleration)
-	
 	
 	var speed_modifier = sprint_modifier + crouch_modifier
 	speed = default_speed + speed_modifier
@@ -137,3 +147,6 @@ func check_fall_speed() -> bool:
 	else:
 		current_fall_velocity = 0.0
 		return false
+
+func _on_weapon_manager_send_ammo(cur_ammo):
+	munition_label.text = "Munition : " + str(cur_ammo)
