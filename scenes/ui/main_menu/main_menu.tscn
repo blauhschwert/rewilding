@@ -1,0 +1,142 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgv2e7ymykovv"]
+
+[ext_resource type="Texture2D" uid="uid://pllaxwif4i7r" path="res://assets/etc/main_menu/rewildingWallpaper.jpg" id="1_1ch07"]
+[ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/etc/fonts/ARCADECLASSIC.TTF" id="1_e8t4i"]
+[ext_resource type="Script" uid="uid://cpl0ljkgsu1jj" path="res://scenes/ui/main_menu/main_menu.gd" id="1_qt1dd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8t4i"]
+bg_color = Color(0.78, 0.5486, 0.08580001, 1)
+skew = Vector2(0.3, 0)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.92, 0.38333336, 0, 0.40392157)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qt1dd"]
+bg_color = Color(0.62, 0.28230667, 0.086799994, 1)
+skew = Vector2(0.3, 0)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.92, 0.38333336, 0, 0.40392157)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qt1dd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.51, 0.51, 0.51, 0.99215686)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1ch07")
+
+[node name="TitleScreen" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -188.0
+offset_top = 187.0
+offset_right = 192.0
+offset_bottom = 273.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.84, 0.80891997, 0.21839999, 0.6784314)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttuns" type="VBoxContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -57.5
+offset_right = 154.625
+offset_bottom = 206.5664
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Buttuns"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_colors/font_hover_color = Color(0.33, 0.15510002, 0.15510002, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.07, 0.0329, 0.0329, 1)
+theme_override_colors/font_outline_color = Color(0.89, 0.5120467, 0.017799983, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_e8t4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qt1dd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8t4i")
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="Buttuns"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_colors/font_hover_color = Color(0.33, 0.15510002, 0.15510002, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.07, 0.0329, 0.0329, 1)
+theme_override_colors/font_outline_color = Color(0.89, 0.5120467, 0.017799983, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_e8t4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qt1dd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8t4i")
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="Buttuns"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_colors/font_hover_color = Color(0.33, 0.15510002, 0.15510002, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.07, 0.0329, 0.0329, 1)
+theme_override_colors/font_outline_color = Color(0.89, 0.5120467, 0.017799983, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_e8t4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qt1dd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8t4i")
+text = "Exit"
+
+[connection signal="pressed" from="Buttuns/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Buttuns/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Buttuns/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -32,18 +32,28 @@ player = NodePath("../../Player")
 [node name="BackgroundMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aug50")
 
-[node name="MobSpawner3D" parent="." instance=ExtResource("6_kiw3p")]
+[node name="City" parent="." instance=ExtResource("1_ibkli")]
+
+[node name="Spawner" type="Node3D" parent="."]
+
+[node name="MobSpawner3D" parent="Spawner" instance=ExtResource("6_kiw3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3403397, 0, 13.150526)
 
-[node name="MobSpawner3D2" parent="." instance=ExtResource("6_kiw3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.40914, 0, 28.771574)
+[node name="MobSpawner3D2" parent="Spawner" instance=ExtResource("6_kiw3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.374987, 0, 28.771574)
 is_active = true
 
-[node name="MobSpawner3D3" parent="." instance=ExtResource("6_kiw3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.61336, 0, -6.1481266)
+[node name="MobSpawner3D3" parent="Spawner" instance=ExtResource("6_kiw3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.80993, 0, -6.1481266)
 is_active = true
 
-[node name="City" parent="." instance=ExtResource("1_ibkli")]
+[node name="MobSpawner3D4" parent="Spawner" instance=ExtResource("6_kiw3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4730291, 0, -22.351147)
+is_active = true
+
+[node name="MobSpawner3D5" parent="Spawner" instance=ExtResource("6_kiw3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.849533, 0, -17.639824)
+is_active = true
 
 [node name="UI" parent="." instance=ExtResource("4_78awf")]
 mouse_filter = 2
@@ -68,6 +78,8 @@ transform = Transform3D(-0.3925288, 0, -0.3097114, 0, 0.5, 0, 0.3097114, 0, -0.3
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -32.393486, 0.250026, -14.023783)
 
 [connection signal="send_ammo" from="Managers/WeaponManager" to="Player" method="_on_weapon_manager_send_ammo"]
-[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
-[connection signal="mob_spawned" from="MobSpawner3D2" to="." method="_on_mob_spawner_3d_mob_spawned"]
-[connection signal="mob_spawned" from="MobSpawner3D3" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="Spawner/MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="Spawner/MobSpawner3D2" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="Spawner/MobSpawner3D3" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="Spawner/MobSpawner3D4" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="Spawner/MobSpawner3D5" to="." method="_on_mob_spawner_3d_mob_spawned"]

@@ -11,7 +11,6 @@ signal send_ammo(cur_ammo)
 @export var player: PlayerController
 
 var current_slot: int = 1
-var current_weapon_data : WeaponData
 
 func _ready() -> void:
 	add_to_group("weapon_manager")

@@ -1,8 +1,6 @@
 class_name WeaponController
 extends Node
 
-signal send_ammo(max,cur)
-
 @export_category("Helpers")
 @export var is_debug : bool = false
 
@@ -52,8 +50,6 @@ func fire_weapon() -> void:
 		
 		if is_debug:
 			print("Fired! Ammo: ",current_ammo)
-		
-		#player_character.shoot_bullet()
 		
 		can_fire_next = false
 		fire_rate_timer = 1.0 / current_weapon.fire_rate

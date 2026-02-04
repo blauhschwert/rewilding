@@ -1,3 +1,4 @@
+class_name Manager
 extends Node
 
 var weapon_manager: WeaponManager

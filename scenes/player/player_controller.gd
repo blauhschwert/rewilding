@@ -117,7 +117,6 @@ func _take_damage(amount) -> void:
 	else:
 		health_finished.emit()
 
-
 func update_rotation(rotation_input) -> void:
 	global_transform.basis = Basis.from_euler(rotation_input)
 
