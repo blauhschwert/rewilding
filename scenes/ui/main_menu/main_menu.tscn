@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgv2e7ymykovv"]
+[gd_scene load_steps=14 format=3 uid="uid://bgv2e7ymykovv"]
 
 [ext_resource type="Texture2D" uid="uid://pllaxwif4i7r" path="res://assets/etc/main_menu/rewildingWallpaper.jpg" id="1_1ch07"]
 [ext_resource type="FontFile" uid="uid://cw22wrnae4r2q" path="res://assets/etc/fonts/ARCADECLASSIC.TTF" id="1_e8t4i"]
 [ext_resource type="Script" uid="uid://cpl0ljkgsu1jj" path="res://scenes/ui/main_menu/main_menu.gd" id="1_qt1dd"]
+[ext_resource type="Script" uid="uid://c6sw5fymstr4d" path="res://scenes/ui/main_menu/audio_control.gd" id="4_cmwxi"]
+[ext_resource type="Script" uid="uid://sk6f1xmbod1k" path="res://scenes/ui/main_menu/check_button.gd" id="5_r70wa"]
+[ext_resource type="Script" uid="uid://dueqrekk36sqw" path="res://scenes/ui/main_menu/scale_control.gd" id="6_52x6y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8t4i"]
 bg_color = Color(0.78, 0.5486, 0.08580001, 1)
@@ -34,6 +37,46 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmwxi"]
+bg_color = Color(0.12, 0.12, 0.12, 0.77254903)
+skew = Vector2(0.15, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.82, 0.54639333, 0.073799975, 0.5882353)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r70wa"]
+bg_color = Color(0.78, 0.5486, 0.08580001, 0.79607844)
+skew = Vector2(0.5, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.3, 0.21100003, 0.033000007, 0.79607844)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qt1dd"]
+color = Color(0.8, 0.47058824, 0.14509805, 1)
+thickness = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52x6y"]
+bg_color = Color(0.85, 0.69133335, 0.25500003, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_cmwxi"]
+color = Color(0.19, 0.112100005, 0.0342, 1)
+thickness = 7
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -44,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qt1dd")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BackGround" type="TextureRect" parent="."]
 modulate = Color(0.51, 0.51, 0.51, 0.99215686)
 layout_mode = 1
 anchors_preset = 15
@@ -56,16 +99,30 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1ch07")
 
-[node name="TitleScreen" type="Label" parent="."]
+[node name="TitleScreenMain" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -95.25
+offset_right = 138.0
+offset_bottom = 95.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleScreen" type="Label" parent="TitleScreenMain"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -188.0
-offset_top = 187.0
-offset_right = 192.0
-offset_bottom = 273.0
+offset_left = -190.0
+offset_top = -152.25
+offset_right = 190.0
+offset_bottom = -66.25
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0.84, 0.80891997, 0.21839999, 0.6784314)
 theme_override_constants/shadow_offset_x = 3
@@ -75,7 +132,7 @@ theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttuns" type="VBoxContainer" parent="."]
+[node name="Buttuns" type="VBoxContainer" parent="TitleScreenMain"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -83,16 +140,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -57.5
-offset_right = 154.625
-offset_bottom = 206.5664
+offset_left = -152.8125
+offset_top = -132.0332
+offset_right = 152.8125
+offset_bottom = 132.0332
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 7
 alignment = 1
 
-[node name="StartButton" type="Button" parent="Buttuns"]
+[node name="StartButton" type="Button" parent="TitleScreenMain/Buttuns"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
@@ -107,7 +164,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qt1dd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e8t4i")
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="Buttuns"]
+[node name="OptionsButton" type="Button" parent="TitleScreenMain/Buttuns"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
@@ -122,7 +179,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qt1dd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e8t4i")
 text = "Options"
 
-[node name="ExitButton" type="Button" parent="Buttuns"]
+[node name="ExitButton" type="Button" parent="TitleScreenMain/Buttuns"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
@@ -137,6 +194,208 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_qt1dd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e8t4i")
 text = "Exit"
 
-[connection signal="pressed" from="Buttuns/StartButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Buttuns/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Buttuns/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -374.875
+offset_top = -273.75
+offset_right = 374.875
+offset_bottom = 273.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cmwxi")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Options/Panel"]
+custom_minimum_size = Vector2(380, 325)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -125.5
+offset_right = 310.0
+offset_bottom = 201.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="OptionName" type="VBoxContainer" parent="Options/Panel/HSplitContainer"]
+custom_minimum_size = Vector2(240, 325)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Name" type="Panel" parent="Options/Panel/HSplitContainer/OptionName"]
+custom_minimum_size = Vector2(235, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_r70wa")
+
+[node name="Label" type="Label" parent="Options/Panel/HSplitContainer/OptionName/Name"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -11.5
+offset_right = 92.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 30
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name2" type="Panel" parent="Options/Panel/HSplitContainer/OptionName"]
+custom_minimum_size = Vector2(235, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_r70wa")
+
+[node name="Label" type="Label" parent="Options/Panel/HSplitContainer/OptionName/Name2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -11.5
+offset_right = 92.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 30
+text = "FullScreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name3" type="Panel" parent="Options/Panel/HSplitContainer/OptionName"]
+custom_minimum_size = Vector2(235, 45)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_r70wa")
+
+[node name="Label" type="Label" parent="Options/Panel/HSplitContainer/OptionName/Name3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -12.5
+offset_right = 111.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 28
+text = "ScreenResolution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionControl" type="VBoxContainer" parent="Options/Panel/HSplitContainer"]
+custom_minimum_size = Vector2(300, 325)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 8
+
+[node name="AudioControl" type="HSlider" parent="Options/Panel/HSplitContainer/OptionControl"]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_qt1dd")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_52x6y")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_cmwxi")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_cmwxi")
+audio_bus_name = "Music"
+
+[node name="CheckButton" type="CheckButton" parent="Options/Panel/HSplitContainer/OptionControl"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("5_r70wa")
+
+[node name="ScaleControl" type="OptionButton" parent="Options/Panel/HSplitContainer/OptionControl"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "100%"
+popup/item_0/id = 0
+popup/item_1/text = "75%"
+popup/item_1/id = 1
+popup/item_2/text = "50%"
+popup/item_2/id = 2
+popup/item_3/text = "25%"
+popup/item_3/id = 3
+script = ExtResource("6_52x6y")
+
+[node name="Label" type="Label" parent="Options/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 42.25
+offset_right = 156.0
+offset_bottom = 114.25
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 36
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Options/Panel"]
+custom_minimum_size = Vector2(0.25, 0)
+layout_mode = 0
+offset_left = 75.875
+offset_top = 38.25
+offset_right = 169.875
+offset_bottom = 107.25
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 1)
+theme_override_colors/font_hover_color = Color(0.33, 0.15510002, 0.15510002, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.07, 0.0329, 0.0329, 1)
+theme_override_colors/font_outline_color = Color(0.89, 0.5120467, 0.017799983, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_e8t4i")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_e8t4i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qt1dd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8t4i")
+text = "<-"
+
+[connection signal="pressed" from="TitleScreenMain/Buttuns/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TitleScreenMain/Buttuns/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="TitleScreenMain/Buttuns/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="value_changed" from="Options/Panel/HSplitContainer/OptionControl/AudioControl" to="Options/Panel/HSplitContainer/OptionControl/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/Panel/HSplitContainer/OptionControl/CheckButton" to="Options/Panel/HSplitContainer/OptionControl/CheckButton" method="_on_toggled"]
+[connection signal="item_selected" from="Options/Panel/HSplitContainer/OptionControl/ScaleControl" to="Options/Panel/HSplitContainer/OptionControl/ScaleControl" method="_on_item_selected"]
+[connection signal="pressed" from="Options/Panel/Back" to="." method="_on_back_pressed"]

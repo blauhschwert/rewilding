@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8qbtki7tuf5c"]
+[gd_scene load_steps=16 format=3 uid="uid://8qbtki7tuf5c"]
 
 [ext_resource type="PackedScene" uid="uid://bqo1q5or8tdei" path="res://assets/city/city.tscn" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://dhynoyybxlu2" path="res://scenes/game.gd" id="1_s0nni"]
@@ -14,9 +14,17 @@
 [ext_resource type="PackedScene" uid="uid://py80awq8qfsm" path="res://scenes/npc/munition_selller/munition_seller.tscn" id="11_mcffj"]
 [ext_resource type="PackedScene" uid="uid://b7g3bmaj2xg64" path="res://scenes/npc/health_seller/health_seller.tscn" id="13_2rd6h"]
 [ext_resource type="PackedScene" uid="uid://dq27tdpqk31w3" path="res://scenes/npc/iron/iron_model.tscn" id="13_7ua8r"]
+[ext_resource type="PackedScene" uid="uid://bgv2e7ymykovv" path="res://scenes/ui/main_menu/main_menu.tscn" id="15_r7sob"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_s0nni")
+
+[node name="MainMenuLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="MainMenu" parent="MainMenuLayer" instance=ExtResource("15_r7sob")]
+offset_bottom = -51.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Managers" type="Node" parent="."]
 
@@ -31,6 +39,7 @@ player = NodePath("../../Player")
 
 [node name="BackgroundMusik" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aug50")
+bus = &"Music"
 
 [node name="City" parent="." instance=ExtResource("1_ibkli")]
 
@@ -77,6 +86,7 @@ transform = Transform3D(-0.3925288, 0, -0.3097114, 0, 0.5, 0, 0.3097114, 0, -0.3
 [node name="HealthSeller" parent="NPCs" instance=ExtResource("13_2rd6h")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -32.393486, 0.250026, -14.023783)
 
+[connection signal="game_started" from="MainMenuLayer/MainMenu" to="." method="_on_main_menu_game_started"]
 [connection signal="send_ammo" from="Managers/WeaponManager" to="Player" method="_on_weapon_manager_send_ammo"]
 [connection signal="mob_spawned" from="Spawner/MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
 [connection signal="mob_spawned" from="Spawner/MobSpawner3D2" to="." method="_on_mob_spawner_3d_mob_spawned"]
